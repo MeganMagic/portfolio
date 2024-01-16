@@ -4,24 +4,44 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 5, 4, 64;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+  letter-spacing: -0.025rem;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl xl:text-6xl font-bold leading-snug md:leading-snug xl:leading-snug;
+  }
+  h2 {
+    @apply text-blue text-xs font-semibold mb-2;
+  }
+
+  section {
+    @apply w-full py-16;
+  }
+
+  a{
+    @apply underline underline-offset-2;
+  }
+  em {
+    @apply not-italic font-semibold relative w-full before:absolute before:-z-10 before:bottom-0 before:content-[''] before:w-[calc(100%_+_4px)] before:h-2 before:bg-lime;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-2xl font-semibold break-keep mb-8;
+  }
 }
