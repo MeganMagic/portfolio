@@ -29,7 +29,7 @@ body {
   }
 
   section {
-    @apply w-full py-16;
+    @apply w-full pt-8 pb-24 md:pt-8 md:pb-32 xl:pt-8 xl:pb-40;
   }
 
   a{
@@ -42,6 +42,6 @@ body {
 
 @layer components {
   .section-title {
-    @apply text-2xl font-semibold break-keep mb-8;
+    @apply text-2xl font-semibold break-keep mb-8 md:mb-12;
   }
 }
