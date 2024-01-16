@@ -1,6 +1,7 @@
-import Link from "next/link";
-import Shape from "@/assets/shape-sparkle.svg";
 import cn from "classnames";
+import Link from "next/link";
+
+import Shape from "@/assets/shape-sparkle.svg";
 
 interface ExpCardProps {
   id: number;
@@ -12,15 +13,7 @@ interface ExpCardProps {
   links?: { label: string; href: string }[];
 }
 
-const ExpCard = ({
-  id,
-  period,
-  onGoing,
-  title,
-  subTitle,
-  items,
-  links,
-}: ExpCardProps) => {
+const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCardProps) => {
   return (
     <div className="card">
       <div className="flex gap-2.5 items-center mb-4">
@@ -31,19 +24,12 @@ const ExpCard = ({
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
           <p className="text-sm md:text-base font-semibold ">{title}</p>
-          {subTitle && (
-            <p className="text-xs md:text-sm font-normal opacity-60">
-              {subTitle}
-            </p>
-          )}
+          {subTitle && <p className="text-xs md:text-sm font-normal opacity-60">{subTitle}</p>}
         </div>
 
         <ul className="list-disc list-inside -indent-5 pl-6">
           {items.map((data, index) => (
-            <li
-              key={`exp-${id}-item-${index}`}
-              className="text-sm md:text-base font-normal mb-1 last:mb-0"
-            >
+            <li key={`exp-${id}-item-${index}`} className="text-sm md:text-base font-normal mb-1 last:mb-0">
               {data}
             </li>
           ))}
