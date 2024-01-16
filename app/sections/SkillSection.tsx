@@ -1,17 +1,14 @@
-import SkillCard from "@/components/SkillCard";
-
-import ShapeFront from "@/assets/shape-frontend.svg";
-import ShapeEnv from "@/assets/shape-env.svg";
 import ShapeDesign from "@/assets/shape-design.svg";
+import ShapeEnv from "@/assets/shape-env.svg";
+import ShapeFront from "@/assets/shape-frontend.svg";
 import ShapeSparkle from "@/assets/shape-sparkle.svg";
+import SkillCard from "@/components/SkillCard";
 
 const SkillSection = () => {
   return (
     <section>
       <h2>기술</h2>
-      <p className="section-title">
-        업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다
-      </p>
+      <p className="section-title">업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다</p>
 
       <div className="cards flex flex-col gap-8 md:gap-10">
         <SkillCard
@@ -29,11 +26,7 @@ const SkillSection = () => {
           color="green"
           renderShape={options => <ShapeEnv {...options} />}
           title="환경 및 배포"
-          items={[
-            "Webpack, babel",
-            "Git workflow",
-            "AWS CodePipeline, AWS Amplify",
-          ]}
+          items={["Webpack, babel", "Git workflow", "AWS CodePipeline, AWS Amplify"]}
         />
 
         <SkillCard

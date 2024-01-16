@@ -20,17 +20,12 @@ const SkillCard = ({ color, renderShape, title, items }: SkillCardProps) => {
             color === "gray" && "text-gray-400 dark:text-gray-500",
           ),
         })}
-        <p className="text-sm md:text-base text-black/60 font-semibold">
-          {title}
-        </p>
+        <p className="text-sm md:text-base text-black/60 font-semibold">{title}</p>
       </div>
 
       <ul className="list-disc list-inside -indent-5 pl-6">
         {items.map((item, index) => (
-          <li
-            key={`skill-${title}-${index}`}
-            className="text-sm md:text-base font-normal mb-1 last:mb-0"
-          >
+          <li key={`skill-${title}-${index}`} className="text-sm md:text-base font-normal mb-1 last:mb-0">
             {item}
           </li>
         ))}

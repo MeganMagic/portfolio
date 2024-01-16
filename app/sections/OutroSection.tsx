@@ -14,9 +14,7 @@ const OutroSection = () => {
       <Shape className="w-16 text-lime mb-10 md:mb-16 xl:w-24 xl:rotate-90" />
 
       <div className="grid grid-cols-[108px_auto] text-sm md:text-base gap-2 md:gap-3 xl:hidden">
-        <p className="text-base md:text-lg font-semibold col-span-2 mb-2">
-          Contact
-        </p>
+        <p className="text-base md:text-lg font-semibold col-span-2 mb-2">Contact</p>
 
         <p className="font-semibold">전화번호</p>
         <p>010.3215.4462</p>

@@ -4,9 +4,7 @@ const ExperienceSection = () => {
   return (
     <section>
       <h2>업무 및 프로젝트 경험</h2>
-      <p className="section-title">
-        스타트업, 외주, 프로젝트 등 다양한 업무를 경험했습니다.
-      </p>
+      <p className="section-title">스타트업, 외주, 프로젝트 등 다양한 업무를 경험했습니다.</p>
 
       <div className="flex flex-col gap-12">
         <ExpCard
@@ -69,8 +67,7 @@ const ExperienceSection = () => {
           period="2021.11 - 12"
           title={
             <>
-              맹학교 미술 수업용 회화 작품 3D 프린팅 파일 아카이빙 프로젝트{" "}
-              <br className="md:hidden" />
+              맹학교 미술 수업용 회화 작품 3D 프린팅 파일 아카이빙 프로젝트 <br className="md:hidden" />
               <em>“Touch Art Archive”</em>
             </>
           }
@@ -96,8 +93,7 @@ const ExperienceSection = () => {
           period="2021.09 - 11"
           title={
             <>
-              자율주행 물류 로봇 회사 <em>“스탠다드 로봇”</em> 홈페이지 제작
-              외주
+              자율주행 물류 로봇 회사 <em>“스탠다드 로봇”</em> 홈페이지 제작 외주
             </>
           }
           subTitle="외주 UI/UX 디자이너 및 Frontend 개발자"
@@ -113,8 +109,7 @@ const ExperienceSection = () => {
           period="2020 - 2021"
           title={
             <>
-              서강대학교 Art&Technology 전공의 연간 학생 전시{" "}
-              <br className="md:hidden" />
+              서강대학교 Art&Technology 전공의 연간 학생 전시 <br className="md:hidden" />
               <em>“Art&Technology Conference 2020”</em>
             </>
           }
