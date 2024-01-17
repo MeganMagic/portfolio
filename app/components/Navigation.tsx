@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 
 import cn from "classnames";
+import Link from "next/link";
 
 import LangSelect from "./LangSelect";
 import Logo from "./Logo";
@@ -16,26 +17,21 @@ const Navigation = forwardRef(({ className, ...props }: NavigationProps, ref: Na
         <Logo />
       </div>
 
-      <div className="grid grid-cols-[24px_auto] text-xs gap-3 pt-4 mb-12 text-black/80 border-t border-t-black/25">
-        <p className="col-span-2 text-sm font-extrabold">Contents</p>
-
-        <p className="font-semibold">01</p>
-        <p className="font-normal">간단 자기소개</p>
-
-        <p className="font-semibold">02</p>
-        <p className="font-normal">업무 및 프로젝트 경험</p>
-
-        <p className="font-semibold">03</p>
-        <p className="font-normal">프로젝트 상세</p>
-
-        <p className="font-semibold">04</p>
-        <p className="font-normal">블로그</p>
-
-        <p className="font-semibold">05</p>
-        <p className="font-normal">기술</p>
-
-        <p className="font-semibold">06</p>
-        <p className="font-normal">교육</p>
+      <div className="flex flex-col text-xs gap-3 pt-4 mb-12 text-black/80 border-t border-t-black/25">
+        <p className="text-sm font-extrabold">Contents</p>
+        {[
+          { label: "간단 자기소개", id: "intro" },
+          { label: "업무 및 프로젝트 경험", id: "experience" },
+          { label: "프로젝트 상세", id: "project" },
+          { label: "블로그", id: "blog" },
+          { label: "기술", id: "skill" },
+          { label: "교육", id: "education" },
+        ].map((data, index) => (
+          <Link key={`nav-${index}`} href={`#${data.id}`} className="grid grid-cols-[32px_auto] no-underline">
+            <p className="font-semibold">{String(index + 1).padStart(2, "0")}</p>
+            <p className="font-normal">{data.label}</p>
+          </Link>
+        ))}
       </div>
 
       <div className="grid grid-cols-[60px_auto] text-xs gap-3 pt-4 text-black/80 border-t border-t-black/25">
