@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div
       className="
-        w-full min-w-80 max-w-screen-xl min-h-screen mx-auto
+        w-full min-w-96 max-w-screen-xl min-h-screen mx-auto
         px-5 md:px-8 xl:px-10
         flex flex-col items-center
         xl:grid xl:grid-cols-4 xl:items-start xl:gap-12

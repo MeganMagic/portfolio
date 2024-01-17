@@ -16,7 +16,7 @@ interface ExpCardProps {
 const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCardProps) => {
   return (
     <div className="card">
-      <div className="flex gap-2.5 items-center mb-4">
+      <div className="flex gap-2.5 items-center mb-3">
         <Shape className={cn(onGoing ? "text-blue" : "opacity-30")} />
         <p className="text-sm md:text-base font-normal opacity-60">{period}</p>
       </div>

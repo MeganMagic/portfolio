@@ -10,13 +10,17 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
         blue: "#007AFF",
         green: "#00C676",
         lime: "#E2FF00",
+        black: "#222222",
+      },
+      zIndex: {
+        "modal-overlay": "899",
+        "modal-content": "900",
       },
     },
   },

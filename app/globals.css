@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 34, 34, 34;
   --background-rgb: 255, 255, 255;
 }
 
@@ -29,7 +29,7 @@ body {
   }
 
   section {
-    @apply w-full py-16;
+    @apply w-full pt-8 pb-24 md:pt-8 md:pb-32 xl:pt-8 xl:pb-40;
   }
 
   a{
@@ -38,10 +38,20 @@ body {
   em {
     @apply not-italic font-semibold relative w-full before:absolute before:-z-10 before:bottom-0 before:content-[''] before:w-[calc(100%_+_4px)] before:h-2 before:bg-lime;
   }
+
+  ul, ol {
+    @apply list-inside -indent-5 pl-5
+  }
+  ul {
+    @apply list-disc
+  }
+  ol {
+    @apply list-decimal
+  }
 }
 
 @layer components {
   .section-title {
-    @apply text-2xl font-semibold break-keep mb-8;
+    @apply text-2xl font-semibold break-keep mb-8 md:mb-12;
   }
 }
