@@ -3,8 +3,8 @@ import SlideUpInView from "@/components/SlideUpInView";
 
 const OutroSection = () => {
   return (
-    <SlideUpInView>
-      <section className="py-20 md:py-24">
+    <section className="py-20 md:py-24">
+      <SlideUpInView>
         <p className="text-2xl md:text-4xl font-semibold leading-normal md:leading-normal mb-4 md:mb-6">
           감사합니다
           <br />
@@ -28,8 +28,8 @@ const OutroSection = () => {
           <p className="font-semibold">Github</p>
           <p>@MeganMagic</p>
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 

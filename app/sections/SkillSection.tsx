@@ -7,8 +7,8 @@ import SlideUpInView from "@/components/SlideUpInView";
 
 const SkillSection = () => {
   return (
-    <SlideUpInView>
-      <section>
+    <section id="skill">
+      <SlideUpInView>
         <h2>기술</h2>
         <p className="section-title">업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다</p>
 
@@ -45,8 +45,8 @@ const SkillSection = () => {
             items={["Swift", "C, Python, Java"]}
           />
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 

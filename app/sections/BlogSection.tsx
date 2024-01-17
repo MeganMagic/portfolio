@@ -7,8 +7,8 @@ const BLOG_LINK = "https://velog.io/@mari";
 
 const BlogSection = () => {
   return (
-    <SlideUpInView>
-      <section>
+    <section id="blog">
+      <SlideUpInView>
         <h2>블로그</h2>
         <p className="section-title">문제 해결 과정을 블로그에 기록했습니다.</p>
 
@@ -40,8 +40,8 @@ const BlogSection = () => {
             </button>
           </Link>
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 

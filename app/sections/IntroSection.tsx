@@ -2,8 +2,8 @@ import SlideUpInView from "@/components/SlideUpInView";
 
 const IntroSection = () => {
   return (
-    <SlideUpInView>
-      <section id="intro">
+    <section id="intro">
+      <SlideUpInView>
         <h2>간단 자기소개</h2>
         <p className="section-title">안녕하세요, 저는 2년차 프론트엔드 개발자입니다.</p>
 
@@ -37,8 +37,8 @@ const IntroSection = () => {
             </p>
           </div>
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 

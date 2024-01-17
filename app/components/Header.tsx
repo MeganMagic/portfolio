@@ -61,7 +61,7 @@ const HeaderNavigation = () => {
             { label: "업무 및 프로젝트 경험", id: "experience" },
             { label: "프로젝트 상세", id: "project" },
             { label: "블로그", id: "blog" },
-            { label: "기술", id: "skills" },
+            { label: "기술", id: "skill" },
             { label: "교육", id: "education" },
           ].map((data, index) => (
             <Link key={`nav-${index}`} href={`#${data.id}`} className="grid grid-cols-[32px_auto] no-underline">

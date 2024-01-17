@@ -3,8 +3,8 @@ import SlideUpInView from "@/components/SlideUpInView";
 
 const ExperienceSection = () => {
   return (
-    <SlideUpInView>
-      <section id="experience">
+    <section id="experience">
+      <SlideUpInView>
         <h2>업무 및 프로젝트 경험</h2>
         <p className="section-title">스타트업, 외주, 프로젝트 등 다양한 업무를 경험했습니다.</p>
 
@@ -132,8 +132,8 @@ const ExperienceSection = () => {
             ]}
           />
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 

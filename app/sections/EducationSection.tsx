@@ -3,8 +3,8 @@ import SlideUpInView from "@/components/SlideUpInView";
 
 const EducationSection = () => {
   return (
-    <SlideUpInView>
-      <section>
+    <section id="education">
+      <SlideUpInView>
         <h2>교육</h2>
         <p className="section-title">교육 사항</p>
 
@@ -54,8 +54,8 @@ const EducationSection = () => {
             </div>
           </div>
         </div>
-      </section>
-    </SlideUpInView>
+      </SlideUpInView>
+    </section>
   );
 };
 
