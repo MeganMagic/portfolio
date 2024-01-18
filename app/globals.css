@@ -5,12 +5,20 @@
 :root {
   --foreground-rgb: 34, 34, 34;
   --background-rgb: 255, 255, 255;
+  /* blue, green, lime */
+  --color-primary: 0, 122, 255; 
+  --color-secondary: 0, 198, 118;
+  --color-point: 226, 255, 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-rgb: 5, 4, 64;
+    --background-rgb: 15, 24, 42;
+    /* green, lime, blue */
+    --color-primary: 0, 198, 118; 
+    --color-secondary: 226, 255, 0;
+    --color-point: 0, 122, 255;
   }
 }
 
@@ -25,7 +33,7 @@ body {
     @apply text-4xl md:text-5xl xl:text-6xl font-bold leading-snug md:leading-snug xl:leading-snug;
   }
   h2 {
-    @apply text-blue text-xs font-semibold mb-2;
+    @apply text-primary text-xs font-semibold mb-2;
   }
 
   section {
@@ -36,7 +44,7 @@ body {
     @apply underline underline-offset-2;
   }
   em {
-    @apply not-italic font-semibold relative w-full before:absolute before:-z-10 before:bottom-0 before:content-[''] before:w-[calc(100%_+_4px)] before:h-2 before:bg-lime;
+    @apply not-italic font-semibold relative w-full before:absolute before:-z-10 before:-bottom-0.5 before:content-[''] before:w-[calc(100%_+_2px)] before:h-1/5 before:bg-point;
   }
 
   ul, ol {

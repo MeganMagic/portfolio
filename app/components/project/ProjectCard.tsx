@@ -27,7 +27,7 @@ const ProjectCard = ({ id, renderShape, color, project }: ProjectCardProps) => {
       <div
         id={`project-card-${id}`}
         className={cn(
-          "w-full h-fit md:h-72 xl:h-80 p-5 md:p-6 bg-white border border-black/15 hover:border-black/0 rounded-md md:rounded-lg flex md:flex-col justify-between items-end md:items-start group",
+          "w-full h-fit md:h-72 xl:h-80 p-5 md:p-6 bg-background border border-foreground/15 hover:border-foreground/0 rounded-md md:rounded-lg flex md:flex-col justify-between items-end md:items-start group",
           color === "blue" && "hover:bg-blue",
           color === "green" && "hover:bg-green",
           color === "lime" && "hover:bg-lime",
@@ -47,7 +47,7 @@ const ProjectCard = ({ id, renderShape, color, project }: ProjectCardProps) => {
           <p className="text-sm font-normal opacity-60 hidden md:inline-block">{subTitle}</p>
         </div>
 
-        <PlusCircle size={20} strokeWidth={1.5} className="opacity-60" />
+        <PlusCircle size={20} strokeWidth={1.5} className="text-foreground/60" />
       </div>
     </button>
   );

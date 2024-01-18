@@ -35,7 +35,7 @@ const BlogSection = () => {
 
         <div className="flex justify-center">
           <Link className="no-underline w-full md:w-fit" href={BLOG_LINK} target="_blank">
-            <button className="w-full md:w-40 py-3 border border-black/15 rounded-md md:rounded-lg bg-transparent hover:bg-black/5 text-sm font-semibold text-black/45 hover:text-black/60">
+            <button className="w-full md:w-40 py-3 border border-foreground/15 rounded-md md:rounded-lg bg-transparent hover:bg-foreground/5 text-sm font-semibold text-foreground/45 hover:text-foreground/60">
               더 보기
             </button>
           </Link>
