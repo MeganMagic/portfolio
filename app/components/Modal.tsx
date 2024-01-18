@@ -1,7 +1,10 @@
+import { useRef } from "react";
 import { X } from "react-feather";
 import { RemoveScroll } from "react-remove-scroll";
 
 import { AnimatePresence, motion } from "framer-motion";
+
+import useOnClickOutside from "@/util/useOnClickOutside";
 
 export interface OverlayProps {
   isOpen: boolean;
@@ -12,6 +15,8 @@ interface ModalProps extends React.PropsWithChildren, OverlayProps {}
 
 const Modal = ({ isOpen, close, children }: ModalProps) => {
   // use OnClick Outside
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(contentRef, close);
 
   return (
     <AnimatePresence initial={false}>
@@ -42,9 +47,10 @@ const Modal = ({ isOpen, close, children }: ModalProps) => {
               >
                 <div
                   id="modal-content"
+                  ref={contentRef}
                   className="
                     w-96 md:w-[512px] max-h-[calc(100vh_-_6rem)] my-12 p-6 md:p-8
-                    bg-white border border-black/15 rounded-md md:rounded-lg
+                    bg-background border border-foreground/15 rounded-md md:rounded-lg
                     relative overflow-y-scroll
                     "
                 >
@@ -52,7 +58,7 @@ const Modal = ({ isOpen, close, children }: ModalProps) => {
                   <X
                     className="absolute top-5 right-5 md:top-7 md:right-7
                     w-6 h-6 md:w-8 md:h-8
-                    opacity-45 hover:opacity-60 active:opacity-75
+                    text-foreground opacity-45 hover:opacity-60 active:opacity-75
                   "
                     strokeWidth={1.5}
                     onClick={close}
