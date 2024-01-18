@@ -1,9 +1,12 @@
+"use client";
+
 import { forwardRef } from "react";
 
 import cn from "classnames";
 import Link from "next/link";
 
-import LangSelect from "./LangSelect";
+// import DarkModeSwitch from "./DarkModeSwitch";
+// import LangSelect from "./LangSelect";
 import Logo from "./Logo";
 
 interface NavigationProps extends React.ComponentPropsWithoutRef<"nav"> {}
@@ -17,7 +20,7 @@ const Navigation = forwardRef(({ className, ...props }: NavigationProps, ref: Na
         <Logo />
       </div>
 
-      <div className="flex flex-col text-xs gap-3 pt-4 mb-12 text-black/80 border-t border-t-black/25">
+      <div className="flex flex-col text-xs gap-3 pt-4 mb-12 text-foreground/80 border-t border-t-black/25 dark:border-t-white/25">
         <p className="text-sm font-extrabold">Contents</p>
         {[
           { label: "간단 자기소개", id: "intro" },
@@ -34,7 +37,7 @@ const Navigation = forwardRef(({ className, ...props }: NavigationProps, ref: Na
         ))}
       </div>
 
-      <div className="grid grid-cols-[60px_auto] text-xs gap-3 pt-4 text-black/80 border-t border-t-black/25">
+      <div className="grid grid-cols-[60px_auto] text-xs gap-3 pt-4 text-foreground/80 border-t border-t-black/25 dark:border-t-white/25">
         <p className="col-span-2 text-sm font-extrabold">Contact</p>
 
         <p className="font-semibold">전화번호</p>
@@ -47,10 +50,10 @@ const Navigation = forwardRef(({ className, ...props }: NavigationProps, ref: Na
         <p className="font-normal">@MeganMagic</p>
       </div>
 
-      <div className="absolute bottom-0 w-full py-4 border-t border-t-black/25 ">
+      {/* <div className="absolute bottom-0 w-full py-4 border-t border-t-black/25 dark:border-t-white/25 flex flex-col gap-2">
+        <DarkModeSwitch />
         <LangSelect />
-        {/* <div>night mode</div> */}
-      </div>
+      </div> */}
     </nav>
   );
 });

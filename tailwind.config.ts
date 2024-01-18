@@ -8,15 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      backgroundColor: {
+        dark: "rgb(15, 24, 42)",
+        light: "#ffffff",
       },
       colors: {
         blue: "#007AFF",
         green: "#00C676",
         lime: "#E2FF00",
         black: "#222222",
+        primary: "rgba(var(--color-primary), <alpha-value>)",
+        secondary: "rgba(var(--color-secondary), <alpha-value>)",
+        point: "rgba(var(--color-point), <alpha-value>)",
+        foreground: "rgba(var(--foreground-rgb), <alpha-value>)",
+        background: "rgba(var(--background-rgb), <alpha-value>)",
       },
       zIndex: {
         "modal-overlay": "899",

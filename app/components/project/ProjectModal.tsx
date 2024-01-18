@@ -50,7 +50,7 @@ const ProjectModal = ({
                 <span>{desc.title}</span>
                 <div className="w-0.5 h-2" />
                 {desc.items && (
-                  <ul className="text-black/80 marker:text-black/80">
+                  <ul className="text-foreground/80 marker:text-foreground/60">
                     {desc.items?.map((item, itemIndex) => (
                       <li key={`project-desc-${index}-${itemIndex}`} className="mb-1 last:mb-0">
                         {item}
@@ -66,7 +66,7 @@ const ProjectModal = ({
         {links && (
           <div className="text-sm md:text-base flex flex-col gap-2">
             <p className="font-semibold text-base md:text-lg">관련 링크</p>
-            <ul className="text-black/80">
+            <ul className="text-foreground/80">
               {links.map((link, index) => (
                 <li key={`project-link-${index}`} className="mb-2">
                   <Link href={link.forwardLink} target="_blacnk">

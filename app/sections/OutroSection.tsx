@@ -13,7 +13,7 @@ const OutroSection = () => {
           편하게 연락주세요
         </p>
 
-        <Shape className="w-16 text-lime mb-10 md:mb-16 xl:w-24 xl:rotate-90 xl:mb-0" />
+        <Shape className="w-16 text-point mb-10 md:mb-16 xl:w-24 xl:rotate-90 xl:mb-0" />
         <div className="hidden xl:block h-[calc(100vh_-_580px)]" />
 
         <div className="grid grid-cols-[108px_auto] text-sm md:text-base gap-2 md:gap-3 xl:hidden">
