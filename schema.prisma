@@ -17,3 +17,22 @@ model experience {
   is_active Boolean? @default(false)
   sub_title String?  @db.VarChar(100)
 }
+
+model project {
+  id        Int           @id @default(autoincrement())
+  title     String        @db.VarChar(100)
+  sub_title String?       @db.VarChar(150)
+  period    String        @db.VarChar(30)
+  member    String        @db.VarChar(100)
+  skills    String[]      @db.VarChar(50)
+  items     ProjectItem[]
+  links     Json[]        @db.Json
+}
+
+model ProjectItem {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(150)
+  content   String[] @db.VarChar(255)
+  project   project? @relation(fields: [projectId], references: [id])
+  projectId Int?
+}
