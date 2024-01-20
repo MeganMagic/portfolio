@@ -12,6 +12,6 @@ export interface Project {
   }[];
   links?: {
     label: string;
-    forwardLink: string;
+    href: string;
   }[];
 }

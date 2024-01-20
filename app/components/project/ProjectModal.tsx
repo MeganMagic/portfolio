@@ -69,7 +69,7 @@ const ProjectModal = ({
             <ul className="text-foreground/80">
               {links.map((link, index) => (
                 <li key={`project-link-${index}`} className="mb-2">
-                  <Link href={link.forwardLink} target="_blacnk">
+                  <Link href={link.href} target="_blacnk">
                     {link.label}
                   </Link>
                 </li>
