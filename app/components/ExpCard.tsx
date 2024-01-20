@@ -1,16 +1,17 @@
 import cn from "classnames";
+import parse from "html-react-parser";
 import Link from "next/link";
 
 import Shape from "@/assets/shape-sparkle.svg";
 
 interface ExpCardProps {
   id: number;
+  title: string;
+  subTitle?: string;
   period: string;
-  onGoing?: boolean;
-  title: React.ReactNode;
-  subTitle?: React.ReactNode;
   items: string[];
   links?: { label: string; href: string }[];
+  onGoing?: boolean;
 }
 
 const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCardProps) => {
@@ -23,7 +24,7 @@ const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCard
 
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
-          <p className="text-sm md:text-base font-semibold ">{title}</p>
+          <p className="text-sm md:text-base font-semibold ">{parse(title)}</p>
           {subTitle && <p className="text-xs md:text-sm font-normal text-foreground/60">{subTitle}</p>}
         </div>
 

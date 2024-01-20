@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model experience {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100)
+  period    String   @db.VarChar(30)
+  items     String[] @db.VarChar(255)
+  links     Json[]   @db.Json
+  is_active Boolean? @default(false)
+  sub_title String?  @db.VarChar(100)
+}
