@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const MainSection = () => {
   return (
-    <div id="main" className="w-full py-16 xl:pt-24 flex flex-col gap-10 md:gap-16">
+    <div id="main" className="w-full pt-16 pb-24 xl:pt-24 flex flex-col gap-10 md:gap-16">
       <h1>
         프론트엔드 개발자
         <br />

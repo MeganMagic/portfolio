@@ -15,7 +15,11 @@ export default async function IntroSection() {
     <section id="intro">
       <SlideUpInView>
         <h2>간단 자기소개</h2>
-        <p className="section-title">안녕하세요, 저는 2년차 프론트엔드 개발자입니다.</p>
+        <p className="section-title">
+          안녕하세요,
+          <br />
+          저는 2년차 프론트엔드 개발자입니다.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-8 md:gap-6">
           {intro.map(({ id, title, detail }) => (

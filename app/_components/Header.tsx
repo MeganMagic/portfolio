@@ -7,7 +7,7 @@ import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
-import LangSelect from "./LangSelect";
+// import LangSelect from "./LangSelect";
 import Logo from "./Logo";
 
 interface HeaderProps extends React.ComponentPropsWithoutRef<"header"> {}
@@ -76,9 +76,7 @@ const HeaderNavigation = () => {
           ))}
         </div>
 
-        <div className="controller flex gap-3 justify-end">
-          <LangSelect />
-        </div>
+        <div className="controller flex gap-3 justify-end">{/* <LangSelect /> */}</div>
       </div>
     </motion.div>
   );

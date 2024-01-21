@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { parsePrismaJSON } from "@/utils/parsePrisma";
 
 async function getExperience() {
-  const response = await prisma.experience.findMany();
+  const response = await prisma.experience.findMany({ orderBy: { id: "asc" } });
 
   return response.map(({ links, sub_title, is_active, ...res }) => ({
     subTitle: sub_title ?? undefined,
