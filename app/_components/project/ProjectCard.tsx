@@ -26,20 +26,20 @@ const ProjectCard = ({ id, title, subTitle }: ProjectCardProps) => {
         )}
       >
         <div className="text-left">
-          <div className="mb-2.5 md:mb-4">
+          <div className="relative mb-2.5 md:mb-4 w-5 md:w-6 h-5 md:h-6">
             <Image
-              className="group-hover:hidden"
+              className="group-hover:hidden object-contain"
               src={`/assets/shape-variant-${id}.svg`}
               alt="shape"
-              width={20}
-              height={20}
+              fill
+              priority={true}
             />
             <Image
-              className="hidden group-hover:block"
+              className="hidden group-hover:block object-contain"
               src={`/assets/shape-variant-${id}-invert.svg`}
               alt="shape"
-              width={20}
-              height={20}
+              fill
+              priority={true}
             />
           </div>
           <p className=" text-lg md:text-xl font-semibold md:mb-4 no-underline!important">{parse(title)}</p>

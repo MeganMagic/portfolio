@@ -27,13 +27,17 @@ export default async function ProjectModal({ id }: ProjectModalProps) {
   return (
     <>
       <div id="project-modal-header" className="flex flex-col gap-3 md:gap-4 mb-10 md:mb-16">
-        <Image src={`/assets/shape-variant-${id}.svg`} width={32} height={32} alt="shape" />
+        <div className="relative w-8 md:w-12 h-8 md:h-12">
+          <Image className="object-contain" src={`/assets/shape-variant-${id}.svg`} fill alt="shape" />
+        </div>
+
         <p className="text-xl md:text-2xl font-semibold leading-normal break-keep">{parse(title)}</p>
         <div className="text-sm md:text-base font-normal">
           <p className="mb-1">{period}</p>
           <p>참여인원 {member}</p>
         </div>
       </div>
+
       <div id="project-modal-content" className="flex flex-col gap-8 md:gap-12">
         <div className="text-sm md:text-base flex flex-col gap-2">
           <p className="font-semibold text-base md:text-lg">기술 스택</p>
