@@ -1,4 +1,4 @@
-import SlideUpInView from "@/components/SlideUpInView";
+import SlideUpInView from "@/_components/SlideUpInView";
 
 const IntroSection = () => {
   return (

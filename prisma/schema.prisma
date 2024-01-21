@@ -21,7 +21,7 @@ model experience {
 model project {
   id        Int           @id @default(autoincrement())
   title     String        @db.VarChar(100)
-  sub_title String?       @db.VarChar(150)
+  sub_title String        @db.VarChar(150)
   period    String        @db.VarChar(30)
   member    String        @db.VarChar(100)
   skills    String[]      @db.VarChar(50)

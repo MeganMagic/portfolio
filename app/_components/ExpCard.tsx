@@ -39,7 +39,7 @@ const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCard
           ))}
         </ul>
 
-        {links && (
+        {links && links.length > 0 && (
           <div className="flex gap-1 text-xs md:text-sm text-foreground/60">
             <p>관련 링크: </p>
             {links.map((link, index) => (

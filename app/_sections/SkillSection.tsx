@@ -1,9 +1,9 @@
+import SkillCard from "@/_components/SkillCard";
+import SlideUpInView from "@/_components/SlideUpInView";
 import ShapeDesign from "@/assets/shape-design.svg";
 import ShapeEnv from "@/assets/shape-env.svg";
 import ShapeFront from "@/assets/shape-frontend.svg";
 import ShapeSparkle from "@/assets/shape-sparkle.svg";
-import SkillCard from "@/components/SkillCard";
-import SlideUpInView from "@/components/SlideUpInView";
 
 const SkillSection = () => {
   return (

@@ -1,5 +1,5 @@
+import SlideUpInView from "@/_components/SlideUpInView";
 import Shape from "@/assets/shape-chevron-down.svg";
-import SlideUpInView from "@/components/SlideUpInView";
 
 const OutroSection = () => {
   return (

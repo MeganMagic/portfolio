@@ -1,4 +1,4 @@
-import { Project } from "@/components/project/types";
+import { Project } from "@/_components/project/types";
 
 type ProjectData = Project[];
 

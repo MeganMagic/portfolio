@@ -1,5 +1,5 @@
+import SlideUpInView from "@/_components/SlideUpInView";
 import Shape from "@/assets/shape-sparkle.svg";
-import SlideUpInView from "@/components/SlideUpInView";
 
 const EducationSection = () => {
   return (

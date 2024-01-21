@@ -1,25 +1,39 @@
-import { useRef } from "react";
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "react-feather";
 import { RemoveScroll } from "react-remove-scroll";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 import useOnClickOutside from "@/util/useOnClickOutside";
 
-export interface OverlayProps {
-  isOpen: boolean;
-  close: () => void;
-}
+interface ModalProps extends React.PropsWithChildren {}
 
-interface ModalProps extends React.PropsWithChildren, OverlayProps {}
+const Modal = ({ children }: ModalProps) => {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(true);
 
-const Modal = ({ isOpen, close, children }: ModalProps) => {
-  // use OnClick Outside
+  const close = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
+  const exit = useCallback(() => {
+    router.back();
+  }, [router]);
+
   const contentRef = useRef<HTMLDivElement | null>(null);
   useOnClickOutside(contentRef, close);
 
-  return (
-    <AnimatePresence initial={false}>
+  useEffect(() => {
+    if (isOpen === false) {
+      setTimeout(exit, 200); // time for exit animation
+    }
+  }, [isOpen, exit]);
+
+  return createPortal(
+    <AnimatePresence>
       {isOpen && (
         <>
           <motion.div
@@ -43,7 +57,7 @@ const Modal = ({ isOpen, close, children }: ModalProps) => {
                 initial={{ opacity: 0, translateY: 20, scale: 0.95 }}
                 animate={{ opacity: 1, translateY: 0, scale: 1 }}
                 exit={{ opacity: 0, translateY: 20, scale: 0.9 }}
-                transition={{ duration: 0.2, damping: 0, ease: "easeOut" }}
+                transition={{ duration: 0.1, damping: 0, ease: "easeOut" }}
               >
                 <div
                   id="modal-content"
@@ -69,7 +83,8 @@ const Modal = ({ isOpen, close, children }: ModalProps) => {
           </div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.getElementById("modal-root")!,
   );
 };
 export default Modal;

@@ -1,13 +1,13 @@
-import Header from "@/components/Header";
-import Navigation from "@/components/Navigation";
-import BlogSection from "@/sections/BlogSection";
-import EducationSection from "@/sections/EducationSection";
-import ExperienceSection from "@/sections/ExperienceSection";
-import IntroSection from "@/sections/IntroSection";
-import MainSection from "@/sections/MainSection";
-import OutroSection from "@/sections/OutroSection";
-import ProjectSection from "@/sections/ProjectSection";
-import SkillSection from "@/sections/SkillSection";
+import Header from "@/_components/Header";
+import Navigation from "@/_components/Navigation";
+import BlogSection from "@/_sections/BlogSection";
+import EducationSection from "@/_sections/EducationSection";
+import ExperienceSection from "@/_sections/ExperienceSection";
+import IntroSection from "@/_sections/IntroSection";
+import MainSection from "@/_sections/MainSection";
+import OutroSection from "@/_sections/OutroSection";
+import ProjectSection from "@/_sections/ProjectSection";
+import SkillSection from "@/_sections/SkillSection";
 
 export default function Home() {
   return (

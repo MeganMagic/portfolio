@@ -1,20 +1,17 @@
-import ExpCard from "@/components/ExpCard";
-import SlideUpInView from "@/components/SlideUpInView";
+import ExpCard from "@/_components/ExpCard";
+import SlideUpInView from "@/_components/SlideUpInView";
 import prisma from "@/lib/prisma";
 import { parsePrismaJSON } from "@/utils/parsePrisma";
 
 async function getExperience() {
   const response = await prisma.experience.findMany();
-  const data = response.map(({ links, sub_title, is_active, ...res }) => {
-    return {
-      subTitle: sub_title ?? undefined,
-      onGoing: is_active ?? false,
-      links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
-      ...res,
-    };
-  });
 
-  return data;
+  return response.map(({ links, sub_title, is_active, ...res }) => ({
+    subTitle: sub_title ?? undefined,
+    onGoing: is_active ?? false,
+    links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
+    ...res,
+  }));
 }
 
 export default async function ExperienceSection() {

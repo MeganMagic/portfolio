@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import BlogCard from "@/components/BlogCard";
-import SlideUpInView from "@/components/SlideUpInView";
+import BlogCard from "@/_components/BlogCard";
+import SlideUpInView from "@/_components/SlideUpInView";
 
 const BLOG_LINK = "https://velog.io/@mari";
 
