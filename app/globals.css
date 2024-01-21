@@ -16,8 +16,8 @@
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 15, 24, 42;
     /* green, lime, blue */
-    --color-primary: 0, 198, 118; 
-    --color-secondary: 226, 255, 0;
+    --color-primary: 0, 209, 125; 
+    --color-secondary: 203, 229, 0;
     --color-point: 0, 122, 255;
   }
 }
@@ -44,7 +44,7 @@ body {
     @apply underline underline-offset-2;
   }
   em {
-    @apply not-italic font-semibold relative w-full before:absolute before:-z-10 before:-bottom-0.5 before:content-[''] before:w-[calc(100%_+_2px)] before:h-1/5 before:bg-point;
+    @apply not-italic font-bold text-primary;
   }
 
   ul, ol {
