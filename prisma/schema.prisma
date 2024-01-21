@@ -36,3 +36,38 @@ model ProjectItem {
   project   project? @relation(fields: [projectId], references: [id])
   projectId Int?
 }
+
+model intro {
+  id     Int    @id @default(autoincrement())
+  title  String @db.VarChar(100)
+  detail String @db.Text
+}
+
+model blog {
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(150)
+  date        String @db.VarChar(50)
+  forwardLink String @db.VarChar(255)
+  bgImageUrl  String @db.VarChar(255)
+}
+
+model skill {
+  id       Int      @id @default(autoincrement())
+  category Category
+  items    String[] @db.VarChar(255)
+}
+
+enum Category {
+  FRONTEND
+  ENV
+  DESIGN
+  ETC
+}
+
+model education {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100)
+  sub_title String   @db.VarChar(150)
+  period    String   @db.VarChar(50)
+  items     String[] @db.VarChar(255)
+}

@@ -8,7 +8,7 @@ import { RemoveScroll } from "react-remove-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-import useOnClickOutside from "@/util/useOnClickOutside";
+import useOnClickOutside from "@/utils/useOnClickOutside";
 
 interface ModalProps extends React.PropsWithChildren {}
 

@@ -4,8 +4,24 @@ import ShapeDesign from "@/assets/shape-design.svg";
 import ShapeEnv from "@/assets/shape-env.svg";
 import ShapeFront from "@/assets/shape-frontend.svg";
 import ShapeSparkle from "@/assets/shape-sparkle.svg";
+import prisma from "@/lib/prisma";
 
-const SkillSection = () => {
+async function getSkills() {
+  const frontend = await prisma.skill.findUniqueOrThrow({ where: { id: 1, category: "FRONTEND" } });
+  const env = await prisma.skill.findUniqueOrThrow({ where: { id: 2, category: "ENV" } });
+  const design = await prisma.skill.findUniqueOrThrow({ where: { id: 3, category: "DESIGN" } });
+  const etc = await prisma.skill.findUniqueOrThrow({ where: { id: 4, category: "ETC" } });
+  return {
+    frontend,
+    env,
+    design,
+    etc,
+  };
+}
+
+export default async function SkillSection() {
+  const skills = await getSkills();
+
   return (
     <section id="skill">
       <SlideUpInView>
@@ -17,37 +33,31 @@ const SkillSection = () => {
             color="blue"
             renderShape={options => <ShapeFront {...options} />}
             title="프론트엔드"
-            items={[
-              "HTML, CSS, JavaScript, TypeScript, React.js, Next.js",
-              "Redux, Zustand, React-Query, Styled-Components, React-hook-form",
-              "Jest, React-Testing-Library, Storybook",
-            ]}
+            items={skills.frontend.items}
           />
 
           <SkillCard
             color="green"
             renderShape={options => <ShapeEnv {...options} />}
             title="환경 및 배포"
-            items={["Webpack, babel", "Git workflow", "AWS CodePipeline, AWS Amplify"]}
+            items={skills.env.items}
           />
 
           <SkillCard
             color="lime"
             renderShape={options => <ShapeDesign {...options} />}
             title="그래픽 편집"
-            items={["Adobe Photoshop, Illustrator, Premiere Pro", "Figma"]}
+            items={skills.design.items}
           />
 
           <SkillCard
             color="gray"
             renderShape={options => <ShapeSparkle {...options} />}
             title="기타"
-            items={["Swift", "C, Python, Java"]}
+            items={skills.etc.items}
           />
         </div>
       </SlideUpInView>
     </section>
   );
-};
-
-export default SkillSection;
+}
