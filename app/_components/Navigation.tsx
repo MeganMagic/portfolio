@@ -47,7 +47,9 @@ const Navigation = forwardRef(({ className, ...props }: NavigationProps, ref: Na
         <p className="font-normal">sjk.mari@gmail.com</p>
 
         <p className="font-semibold">Github</p>
-        <p className="font-normal">@MeganMagic</p>
+        <Link href="https://github.com/MeganMagic" target="_blank">
+          <p className="font-normal">@MeganMagic</p>
+        </Link>
       </div>
 
       {/* <div className="absolute bottom-0 w-full py-4 border-t border-t-black/25 dark:border-t-white/25 flex flex-col gap-2">

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import SlideUpInView from "@/_components/SlideUpInView";
 import Shape from "@/assets/shape-chevron-down.svg";
 
@@ -26,7 +28,9 @@ const OutroSection = () => {
           <p>sjk.mari@gmail.com</p>
 
           <p className="font-semibold">Github</p>
-          <p>@MeganMagic</p>
+          <Link href="https://github.com/MeganMagic" target="_blank">
+            <p>@MeganMagic</p>
+          </Link>
         </div>
       </SlideUpInView>
     </section>
