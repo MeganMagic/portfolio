@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model experience {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100)
+  period    String   @db.VarChar(30)
+  items     String[] @db.VarChar(255)
+  links     Json[]   @db.Json
+  is_active Boolean? @default(false)
+  sub_title String?  @db.VarChar(100)
+}
+
+model project {
+  id        Int           @id @default(autoincrement())
+  title     String        @db.VarChar(100)
+  sub_title String        @db.VarChar(150)
+  period    String        @db.VarChar(30)
+  member    String        @db.VarChar(100)
+  skills    String[]      @db.VarChar(50)
+  items     ProjectItem[]
+  links     Json[]        @db.Json
+}
+
+model ProjectItem {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(150)
+  content   String[] @db.VarChar(255)
+  project   project? @relation(fields: [projectId], references: [id])
+  projectId Int?
+}
+
+model intro {
+  id     Int    @id @default(autoincrement())
+  title  String @db.VarChar(100)
+  detail String @db.Text
+}
+
+model blog {
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(150)
+  date        String @db.VarChar(50)
+  forwardLink String @db.VarChar(255)
+  bgImageUrl  String @db.VarChar(255)
+}
+
+model skill {
+  id       Int      @id @default(autoincrement())
+  category Category
+  items    String[] @db.VarChar(255)
+}
+
+enum Category {
+  FRONTEND
+  ENV
+  DESIGN
+  ETC
+}
+
+model education {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100)
+  sub_title String   @db.VarChar(150)
+  period    String   @db.VarChar(50)
+  items     String[] @db.VarChar(255)
+}

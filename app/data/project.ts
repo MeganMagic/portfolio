@@ -1,4 +1,4 @@
-import { Project } from "@/components/project/types";
+import { Project } from "@/_components/project/types";
 
 type ProjectData = Project[];
 
@@ -35,7 +35,7 @@ const data: ProjectData = [
         ],
       },
     ],
-    links: [{ label: "코드스테이츠 홈페이지", forwardLink: "https://www.codestates.com" }],
+    links: [{ label: "코드스테이츠 홈페이지", href: "https://www.codestates.com" }],
   },
   {
     title: `티끌 MVP 모델(ver.0) 개발`,
@@ -81,10 +81,9 @@ const data: ProjectData = [
     links: [
       {
         label: "티끌 Figma",
-        forwardLink:
-          "https://www.figma.com/file/ak0eHSwx6SW3cYfR9MdPmG/High-Fidelity?type=design&node-id=197-138&mode=design",
+        href: "https://www.figma.com/file/ak0eHSwx6SW3cYfR9MdPmG/High-Fidelity?type=design&node-id=197-138&mode=design",
       },
-      { label: "티끌 Github", forwardLink: "https://github.com/kdh-92/Tiggle" },
+      { label: "티끌 Github", href: "https://github.com/kdh-92/Tiggle" },
     ],
   },
   {
@@ -149,7 +148,7 @@ const data: ProjectData = [
         ],
       },
     ],
-    links: [{ label: "코드스테이츠 블로그", forwardLink: "https://www.codestates.com/blog" }],
+    links: [{ label: "코드스테이츠 블로그", href: "https://www.codestates.com/blog" }],
   },
   {
     title: `코드스테이츠 웹사이트\n성능 최적화 프로젝트`,
@@ -210,7 +209,7 @@ const data: ProjectData = [
     links: [
       {
         label: "[블로그] 선언적 토스트 컴포넌트 만들기",
-        forwardLink: "https://velog.io/@mari/declarative-programming-with-toast-component",
+        href: "https://velog.io/@mari/declarative-programming-with-toast-component",
       },
     ],
   },
