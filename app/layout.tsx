@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Gothic_A1 } from "next/font/google";
 
 import type { Metadata } from "next";
@@ -22,6 +24,8 @@ export default function RootLayout(props: { children: React.ReactNode; modal: Re
         {props.children}
         {props.modal}
         <div id="modal-root" />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

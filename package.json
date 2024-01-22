@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
+    "@vercel/analytics": "^1.1.2",
     "@vercel/postgres": "^0.5.1",
+    "@vercel/speed-insights": "^1.0.6",
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",
     "html-react-parser": "^5.1.1",
