@@ -1,33 +1,46 @@
 "use client";
 
-import { forwardRef, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { Menu } from "react-feather";
 
 import cn from "classnames";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, HTMLMotionProps, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 
 // import LangSelect from "./LangSelect";
 import Logo from "./Logo";
 
-interface HeaderProps extends React.ComponentPropsWithoutRef<"header"> {}
-type HeaderRef = React.ComponentPropsWithRef<"header">["ref"];
+interface HeaderProps extends HTMLMotionProps<"header"> {}
 
-const Header = forwardRef(({ className, ...props }: HeaderProps, ref: HeaderRef) => {
+const TARGET_Y = 200;
+
+const Header = ({ className, ...props }: HeaderProps) => {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const toggle = useCallback(() => {
     setOpen(!open);
   }, [open]);
 
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", value => {
+    setVisible(value > TARGET_Y);
+  });
+
   return (
-    <header
+    <motion.header
       className={cn(
         className,
         "w-full h-16 border-b bg-light border-b-gray-400 flex justify-between items-center sticky top-0 z-50",
         "dark:bg-dark dark:border-b-gray-700",
       )}
-      ref={ref}
+      variants={{
+        show: { y: 0, opacity: 1 },
+        hide: { y: -64, opacity: 0 },
+      }}
+      initial="hide"
+      animate={visible ? "show" : "hide"}
+      transition={{ type: "just" }}
       {...props}
     >
       <Link className="no-underline" href="#top">
@@ -39,9 +52,9 @@ const Header = forwardRef(({ className, ...props }: HeaderProps, ref: HeaderRef)
       </button>
 
       <AnimatePresence initial={false}>{open && <HeaderNavigation />}</AnimatePresence>
-    </header>
+    </motion.header>
   );
-});
+};
 
 export default Header;
 
