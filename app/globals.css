@@ -30,14 +30,14 @@ body {
 
 @layer base {
   h1 {
-    @apply text-4xl md:text-5xl xl:text-6xl font-bold leading-snug md:leading-snug xl:leading-snug;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-snug md:leading-snug lg:leading-snug;
   }
   h2 {
     @apply text-primary text-xs font-semibold mb-2;
   }
 
   section {
-    @apply w-full pt-8 pb-24 md:pt-8 md:pb-32 xl:pt-8 xl:pb-40;
+    @apply w-full pt-8 pb-24 md:pt-8 md:pb-32 lg:pt-8 lg:pb-40;
   }
 
   a{
