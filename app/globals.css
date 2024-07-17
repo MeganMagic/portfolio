@@ -30,7 +30,7 @@ body {
 
 @layer base {
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-snug md:leading-snug lg:leading-snug;
+    @apply text-4xl md:text-5xl font-semibold leading-snug md:leading-snug lg:leading-snug;
   }
   h2 {
     @apply text-primary text-xs font-semibold mb-2;
@@ -61,5 +61,12 @@ body {
 @layer components {
   .section-title {
     @apply text-2xl font-semibold break-keep mb-8 md:mb-12;
+  }
+
+  .overview-frame {
+    scrollbar-width: none;
+  }
+  .overview-frame.box::-webkit-scrollbar{
+    display: none;
   }
 }
