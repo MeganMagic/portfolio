@@ -1,4 +1,5 @@
 import ExpCard from "@/_components/ExpCard";
+import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import prisma from "@/lib/prisma";
 import { parsePrismaJSON } from "@/utils/parsePrisma";
@@ -18,7 +19,7 @@ export default async function ExperienceSection() {
   const data = await getExperience();
 
   return (
-    <section id="experience">
+    <SectionWatcher id="experience">
       <SlideUpInView>
         <h2>업무 및 프로젝트 경험</h2>
         <p className="section-title">스타트업, 외주, 프로젝트 등 다양한 업무를 경험했습니다.</p>
@@ -28,6 +29,6 @@ export default async function ExperienceSection() {
           ))}
         </div>
       </SlideUpInView>
-    </section>
+    </SectionWatcher>
   );
 }

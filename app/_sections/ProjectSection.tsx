@@ -1,3 +1,4 @@
+import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import ProjectCard from "@/_components/project/ProjectCard";
 import prisma from "@/lib/prisma";
@@ -17,7 +18,7 @@ async function getProjects() {
 export default async function ProjectSection() {
   const projects = await getProjects();
   return (
-    <section id="project">
+    <SectionWatcher id="project">
       <SlideUpInView>
         <h2>프로젝트 상세</h2>
         <p className="section-title">주요 프로젝트의 세부 사항을 확인해보세요</p>
@@ -28,6 +29,6 @@ export default async function ProjectSection() {
           ))}
         </div>
       </SlideUpInView>
-    </section>
+    </SectionWatcher>
   );
 }
