@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import BlogCard from "@/_components/BlogCard";
+import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import prisma from "@/lib/prisma";
-import SectionWatcher from "@/_components/SectionWatcher";
 
 const BLOG_LINK = "https://velog.io/@mari";
 
