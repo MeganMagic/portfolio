@@ -30,7 +30,7 @@ body {
 
 @layer base {
   h1 {
-    @apply text-5xl md:text-6xl font-bold leading-snug md:leading-snug lg:leading-snug;
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-snug sm:leading-snug md:leading-snug lg:leading-snug;
   }
   h2 {
     @apply text-primary text-xs font-semibold mb-2;

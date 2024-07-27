@@ -57,9 +57,9 @@ const ThirdShape = () => {
           x={-50}
         />
         <motion.path
-          className="path2"
+          className="path2 dark:fill-background"
           d="M86 143C86 162.882 69.8823 179 50 179C30.1177 179 14 162.882 14 143C14 123.118 30.1177 107 50 107C69.8823 107 86 123.118 86 143Z"
-          fill="white"
+          fill="#ffffff"
           scale={0}
         />
       </motion.svg>
