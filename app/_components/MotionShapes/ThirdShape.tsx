@@ -1,31 +1,51 @@
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
-import { beforeStart, shape1Duration, shape2Duration, shape3, startStagger } from "./constants";
+import {
+  scene1,
+  scene1Stagger,
+  scene2,
+  scene3at,
+  scene3shape1TotalDuration,
+  scene3shape2TotalDuration,
+  scene3shape3Durations as scene3d,
+} from "./constants";
 
 const ThirdShape = () => {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
+    // scene1
+    animate([[".svg1", { y: -10 }, { ...scene1, delay: scene1Stagger * 2 }]]);
+    // scene2
+    animate([[".svg1", { x: 0 }, { ...scene2 }]]);
+    // scene3
     animate([
-      [".path1", { pathLength: 0 }, { duration: beforeStart }],
       [
         ".path1",
         { x: 0 },
         {
-          duration: shape3.moveX1,
-          delay: shape1Duration + shape2Duration,
+          duration: scene3d.moveX1,
+          at: scene3at,
+          delay: scene3shape1TotalDuration + scene3shape2TotalDuration,
           ease: "easeOut",
           type: "spring",
         },
       ],
-      [".path1", { pathLength: 1 }, { duration: shape3.pathLength1, at: "-0.1", ease: "easeOut", type: "spring" }],
-      [".path2", { scale: 1 }, { duration: shape3.scaleUp1, at: "-0.5", ease: "easeOut", type: "spring" }],
+      [".path1", { pathLength: 1 }, { duration: scene3d.pathLength1, at: "-0.3", ease: "easeOut", type: "spring" }],
+      [".path2", { scale: 1 }, { duration: scene3d.scaleUp1, at: "-0.2", ease: "easeOut", type: "spring" }],
     ]);
   }, []);
 
   return (
-    <div ref={scope}>
-      <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <div ref={scope} style={{ width: "fit-content", zIndex: 1 }}>
+      <motion.svg
+        className="svg1"
+        width="200"
+        height="200"
+        viewBox="0 0 200 200"
+        fill="none"
+        style={{ x: -150, y: 300 }}
+      >
         <motion.path
           className="path1"
           d="M100 144C75.6995 144 56 124.301 56 100C56 75.6995 75.6995 56 100 56C124.301 56 144 75.6995 144 100C144 124.301 124.301 144 100 144Z"
@@ -42,7 +62,7 @@ const ThirdShape = () => {
           fill="white"
           scale={0}
         />
-      </svg>
+      </motion.svg>
     </div>
   );
 };

@@ -1,6 +1,13 @@
-import { motion, useAnimate } from "framer-motion";
+import { motion, useAnimate, stagger } from "framer-motion";
 import { useEffect } from "react";
-import { beforeStart, shape2, shape1Duration } from "./constants";
+import {
+  scene1,
+  scene2,
+  scene3at,
+  scene3shape2Durations as scene3d,
+  scene3shape1TotalDuration,
+  scene1Stagger,
+} from "./constants";
 
 interface SecondShapeProps {}
 
@@ -8,19 +15,27 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
+    // scene1
+    animate([[".svg1", { y: -10 }, { ...scene1, delay: scene1Stagger }]]);
+    // scene2
+    animate([[".svg1", { x: 0 }, { ...scene2 }]]);
+    // scene3
     animate([
-      [".path1", { pathLength: 0 }, { duration: beforeStart }],
-      [".path1", { y: 0 }, { duration: shape2.moveY1, delay: shape1Duration, ease: "easeOut", type: "spring" }],
-      [".path1", { pathLength: 1 }, { duration: shape2.pathLength1, ease: "easeInOut", type: "spring" }],
+      [
+        ".path1",
+        { y: 0 },
+        { duration: scene3d.moveY1, at: scene3at, delay: scene3shape1TotalDuration, ease: "easeOut", type: "spring" },
+      ],
+      [".path1", { pathLength: 1 }, { duration: scene3d.pathLength1, ease: "easeInOut", type: "spring" }],
     ]);
     animate([
-      [".path2", { pathLength: 0 }, { duration: beforeStart }],
+      [".path2", { pathLength: 0 }, { duration: scene3at }],
       [
         ".path2",
         { pathLength: 1 },
         {
-          duration: shape2.pathLength1,
-          delay: shape1Duration + shape2.moveY1,
+          duration: scene3d.pathLength1,
+          delay: scene3shape1TotalDuration + scene3d.moveY1,
           ease: "easeInOut",
           type: "spring",
         },
@@ -29,8 +44,8 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
   }, []);
 
   return (
-    <motion.div ref={scope} style={{ width: "fit-content" }}>
-      <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+    <div ref={scope} style={{ width: "fit-content", zIndex: 2 }}>
+      <motion.svg className="svg1" width="200" height="200" viewBox="0 0 200 200" fill="none" style={{ x: 50, y: 300 }}>
         <motion.path
           className="path1"
           d="M50 57H150"
@@ -50,8 +65,8 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
           strokeLinejoin="round"
           pathLength={0}
         />
-      </svg>
-    </motion.div>
+      </motion.svg>
+    </div>
   );
 };
 
