@@ -1,6 +1,8 @@
 "use client";
 
-import Triangle from "@/_components/MotionShapes/Triangle";
+import FirstShape from "@/_components/MotionShapes/FirstShape";
+import SecondShape from "@/_components/MotionShapes/SecondShape";
+import ThirdShape from "@/_components/MotionShapes/ThirdShape";
 
 const MainSection = () => {
   return (
@@ -13,8 +15,10 @@ const MainSection = () => {
         <em>송진경</em>입니다.
       </h1>
 
-      <div className="w-full h-32 md:h-48 relative">
-        <Triangle />
+      <div className="w-full h-32 md:h-48 relative flex justify-center">
+        <FirstShape />
+        <SecondShape />
+        <ThirdShape />
       </div>
     </div>
   );
