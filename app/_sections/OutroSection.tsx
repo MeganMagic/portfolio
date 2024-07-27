@@ -7,7 +7,7 @@ const OutroSection = () => {
   return (
     <section className="py-20 md:py-24">
       <SlideUpInView>
-        <p className="text-2xl md:text-4xl font-semibold leading-normal md:leading-normal mb-4 md:mb-6">
+        <p className="text-center text-2xl md:text-3xl font-semibold leading-normal md:leading-normal mb-4 md:mb-6">
           감사합니다
           <br />
           더 궁금한 점이 있다면
@@ -15,20 +15,15 @@ const OutroSection = () => {
           편하게 연락주세요
         </p>
 
-        <Shape className="w-16 text-point mb-10 md:mb-16 xl:w-24 xl:rotate-90 xl:mb-0" />
-        <div className="hidden xl:block h-[calc(100vh_-_580px)]" />
-
-        <div className="grid grid-cols-[108px_auto] text-sm md:text-base gap-2 md:gap-3 xl:hidden">
-          <p className="text-base md:text-lg font-semibold col-span-2 mb-2">Contact</p>
-
+        <div className="w-72 md:w-80 mx-auto grid grid-cols-3 text-sm md:text-base gap-2 md:gap-3 p-6 md:p-8 rounded-2xl bg-dark/5 dark:bg-light/10">
           <p className="font-semibold">전화번호</p>
-          <p>010.3215.4462</p>
+          <p className="col-span-2">010.3215.4462</p>
 
           <p className="font-semibold">이메일</p>
-          <p>sjk.mari@gmail.com</p>
+          <p className="col-span-2">sjk.mari@gmail.com</p>
 
           <p className="font-semibold">Github</p>
-          <Link href="https://github.com/MeganMagic" target="_blank">
+          <Link href="https://github.com/MeganMagic" target="_blank" className="col-span-2">
             <p>@MeganMagic</p>
           </Link>
         </div>

@@ -10,6 +10,14 @@ import { useSectionWatch } from "./SectionWatcher";
 
 interface HeaderProps extends HTMLMotionProps<"header"> {}
 
+const navItems = [
+  { label: "경력", id: "experience" },
+  { label: "프로젝트 상세", id: "project" },
+  { label: "블로그", id: "blog" },
+  { label: "기술", id: "skill" },
+  { label: "Github", id: "Github", link: "https://github.com/MeganMagic" },
+];
+
 const Header = ({ className, ...props }: HeaderProps) => {
   const { activeId } = useSectionWatch();
 
@@ -17,25 +25,18 @@ const Header = ({ className, ...props }: HeaderProps) => {
     <motion.header
       className={cn(
         className,
-        "w-full max-w-2xl h-16 px-6 md:px-8 pr-4 md:pr-6 bg-dark/5 backdrop-blur-lg rounded-full",
-        "flex justify-between items-center",
-        "sticky top-4 z-50",
+        "w-full max-w-2xl h-16 px-6 md:px-8 sm:pr-4 md:pr-6 bg-dark/5 backdrop-blur-lg rounded-full",
+        "flex justify-between items-center sticky top-4 z-50",
         "dark:bg-light/10 ",
       )}
       {...props}
     >
-      <Link className="no-underline hidden sm:block" href="#top">
+      <Link className="no-underline" href="#top">
         <Logo />
       </Link>
 
-      <ul className="flex gap-2 items-center list-none p-0 indent-0">
-        {[
-          { label: "경력", id: "experience" },
-          { label: "프로젝트 상세", id: "project" },
-          { label: "블로그", id: "blog" },
-          { label: "기술", id: "skill" },
-          { label: "Github", id: "Github", link: "https://github.com/MeganMagic" },
-        ].map(({ label, id, link }) => (
+      <ul className="gap-2 items-center list-none p-0 indent-0 hidden sm:flex">
+        {navItems.map(({ label, id, link }) => (
           <Link key={`header-item-${id}`} href={link ?? `#${id}`} target={link && "_blank"} className="no-underline">
             <li
               className={cn(

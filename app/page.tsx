@@ -16,11 +16,11 @@ export default function Home() {
         className="
         w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
         px-5 md:px-8 lg:px-10
-        flex flex-col items-center
+        flex flex-col items-center relative
       "
       >
         <MainSection />
-        <Header />
+        <Header className="hidden sm:flex mb-10" />
 
         <IntroSection />
         <ExperienceSection />
