@@ -1,3 +1,4 @@
+import SectionWatcher from "@/_components/SectionWatcher";
 import SkillCard from "@/_components/SkillCard";
 import SlideUpInView from "@/_components/SlideUpInView";
 import ShapeDesign from "@/assets/shape-design.svg";
@@ -23,7 +24,7 @@ export default async function SkillSection() {
   const skills = await getSkills();
 
   return (
-    <section id="skill">
+    <SectionWatcher id="skill">
       <SlideUpInView>
         <h2>기술</h2>
         <p className="section-title">업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다</p>
@@ -58,6 +59,6 @@ export default async function SkillSection() {
           />
         </div>
       </SlideUpInView>
-    </section>
+    </SectionWatcher>
   );
 }

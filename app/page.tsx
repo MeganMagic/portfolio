@@ -7,20 +7,21 @@ import MainSection from "@/_sections/MainSection";
 import OutroSection from "@/_sections/OutroSection";
 import ProjectSection from "@/_sections/ProjectSection";
 import SkillSection from "@/_sections/SkillSection";
+import { SectionWatchProvider } from "./_components/SectionWatcher";
 
 export default function Home() {
   return (
-    <div
-      className="
+    <SectionWatchProvider>
+      <main
+        className="
         w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
         px-5 md:px-8 lg:px-10
         flex flex-col items-center
       "
-    >
-      <Header />
-
-      <main className="w-full xl:col-span-3">
+      >
         <MainSection />
+        <Header />
+
         <IntroSection />
         <ExperienceSection />
         <ProjectSection />
@@ -29,6 +30,6 @@ export default function Home() {
         <EducationSection />
         <OutroSection />
       </main>
-    </div>
+    </SectionWatchProvider>
   );
 }

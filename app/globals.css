@@ -6,7 +6,7 @@
   --foreground-rgb: 34, 34, 34;
   --background-rgb: 255, 255, 255;
   /* blue, green, lime */
-  --color-primary: 0, 122, 255; 
+  --color-primary: 0, 122, 255;
   --color-secondary: 0, 198, 118;
   --color-point: 226, 255, 0;
 }
@@ -16,7 +16,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 15, 24, 42;
     /* green, lime, blue */
-    --color-primary: 0, 209, 125; 
+    --color-primary: 0, 209, 125;
     --color-secondary: 203, 229, 0;
     --color-point: 0, 122, 255;
   }
@@ -30,7 +30,7 @@ body {
 
 @layer base {
   h1 {
-    @apply text-4xl md:text-5xl font-semibold leading-snug md:leading-snug lg:leading-snug;
+    @apply text-5xl md:text-6xl font-bold leading-snug md:leading-snug lg:leading-snug;
   }
   h2 {
     @apply text-primary text-xs font-semibold mb-2;
@@ -40,21 +40,22 @@ body {
     @apply w-full pt-8 pb-24 md:pt-8 md:pb-32 lg:pt-8 lg:pb-40;
   }
 
-  a{
+  a {
     @apply underline underline-offset-2;
   }
   em {
     @apply not-italic font-bold text-primary;
   }
 
-  ul, ol {
-    @apply list-inside -indent-5 pl-5
+  ul,
+  ol {
+    @apply list-inside -indent-5 pl-5;
   }
   ul {
-    @apply list-disc
+    @apply list-disc;
   }
   ol {
-    @apply list-decimal
+    @apply list-decimal;
   }
 }
 
@@ -66,7 +67,7 @@ body {
   .overview-frame {
     scrollbar-width: none;
   }
-  .overview-frame.box::-webkit-scrollbar{
+  .overview-frame.box::-webkit-scrollbar {
     display: none;
   }
 }
