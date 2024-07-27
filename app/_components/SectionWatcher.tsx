@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, PropsWithChildren, createContext, useContext, useEffect, useState } from "react";
+import { FC, PropsWithChildren, createContext, useContext, useState } from "react";
+
 import { motion } from "framer-motion";
 
 // Context

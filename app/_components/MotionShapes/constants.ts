@@ -1,4 +1,5 @@
 import { Easing, Spring } from "framer-motion";
+
 type SpringType = Spring["type"];
 
 export const scene1 = {

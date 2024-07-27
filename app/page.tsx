@@ -7,6 +7,7 @@ import MainSection from "@/_sections/MainSection";
 import OutroSection from "@/_sections/OutroSection";
 import ProjectSection from "@/_sections/ProjectSection";
 import SkillSection from "@/_sections/SkillSection";
+
 import { SectionWatchProvider } from "./_components/SectionWatcher";
 
 export default function Home() {

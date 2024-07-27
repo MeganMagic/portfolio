@@ -1,5 +1,7 @@
-import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
+
+import { motion, useAnimate } from "framer-motion";
+
 import { scene1, scene2, scene3at, scene3shape1Durations as scene3d } from "./constants";
 
 const FirstShape = () => {
@@ -45,5 +47,3 @@ const FirstShape = () => {
 export default FirstShape;
 
 const originalPath = "M 50 140.5 L 100 64 L 150 140.5";
-const rotateHorizontalPath = "M 150 140.5 L 100 64 L 50 140.5";
-const rotateVerticalPath = "M 50 64 L 100 140.5 L 150 64";

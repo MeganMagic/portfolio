@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight } from "react-feather";
+
 import cn from "classnames";
 import { HTMLMotionProps, motion } from "framer-motion";
+import Link from "next/link";
 
 import Logo from "./Logo";
 import { useSectionWatch } from "./SectionWatcher";

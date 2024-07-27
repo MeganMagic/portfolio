@@ -1,5 +1,7 @@
-import { motion, useAnimate, stagger } from "framer-motion";
 import { useEffect } from "react";
+
+import { motion, useAnimate } from "framer-motion";
+
 import {
   scene1,
   scene2,
