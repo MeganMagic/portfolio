@@ -11,9 +11,9 @@ const Logo = ({ className, ...props }: LogoProps) => {
   return (
     <div className={cn("relative", className)} {...props}>
       <div className="shape flex gap-2.5">
-        <div className="w-4 h-4 rounded-full bg-primary" />
-        <div className="w-4 h-4 rounded-full bg-secondary" />
-        <div className="w-4 h-4 rounded-full bg-point" />
+        <div className="w-4 h-4 rounded-full bg-blue" />
+        <div className="w-4 h-4 rounded-full bg-green" />
+        <div className="w-4 h-4 rounded-full bg-lime" />
       </div>
     </div>
   );

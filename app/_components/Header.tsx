@@ -42,7 +42,7 @@ const Header = ({ className, ...props }: HeaderProps) => {
             <li
               className={cn(
                 "px-4 py-2 rounded-full flex gap-0.5 items-center transition-colors",
-                activeId === id && "bg-light",
+                activeId === id && "bg-light dark:bg-dark",
               )}
             >
               <span className="text-sm md:text-base font-medium whitespace-nowrap">{label}</span>
