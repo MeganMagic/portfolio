@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import BlogCard from "@/_components/BlogCard";
+import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import prisma from "@/lib/prisma";
 
@@ -15,7 +16,7 @@ export default async function BlogSection() {
   const blogs = await getBlogs();
 
   return (
-    <section id="blog">
+    <SectionWatcher id="blog">
       <SlideUpInView>
         <h2>블로그</h2>
         <p className="section-title">문제 해결 과정을 블로그에 기록했습니다.</p>
@@ -34,6 +35,6 @@ export default async function BlogSection() {
           </Link>
         </div>
       </SlideUpInView>
-    </section>
+    </SectionWatcher>
   );
 }
