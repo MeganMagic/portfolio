@@ -26,8 +26,8 @@ export default async function SkillSection() {
   return (
     <SectionWatcher id="skill">
       <SlideUpInView>
-        <h2>기술</h2>
-        <p className="section-title">업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다</p>
+        <h2>기술 스택 및 도구</h2>
+        <p className="section-description">업무와 프로젝트를 하면서 다음과 같은 기술을 사용했습니다</p>
 
         <div className="cards flex flex-col gap-8 md:gap-10">
           <SkillCard

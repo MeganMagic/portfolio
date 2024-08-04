@@ -16,7 +16,6 @@ export default async function EducationSection() {
     <section id="education">
       <SlideUpInView>
         <h2>교육</h2>
-        <p className="section-title">교육 사항</p>
 
         <div className="cards flex flex-col gap-12 md:gap-16">
           {educations.map(({ id, period, title, subTitle, items }) => (

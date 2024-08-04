@@ -13,7 +13,7 @@ const MainSection = () => {
         <ThirdShape />
       </div>
 
-      <h1 className="w-full p-6 md:p-8 text-center bg-light z-40 dark: dark:bg-dark">
+      <h1 className="w-full p-6 md:p-8 bg-light z-40 dark: dark:bg-dark">
         안녕하세요,
         <br />
         프론트엔드 개발자

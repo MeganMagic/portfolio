@@ -21,7 +21,7 @@ export default async function ProjectSection() {
     <SectionWatcher id="project">
       <SlideUpInView>
         <h2>프로젝트 상세</h2>
-        <p className="section-title">주요 프로젝트의 세부 사항을 확인해보세요</p>
+        <p className="section-description">주요 프로젝트의 세부 사항을 확인해보세요</p>
 
         <div className="cards grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map(props => (
