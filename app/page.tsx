@@ -23,11 +23,11 @@ export default function Home() {
         <MainSection />
         <Header className="hidden sm:flex mb-10" />
 
+        <SkillSection />
         <IntroSection />
         <ExperienceSection />
         <ProjectSection />
         <BlogSection />
-        <SkillSection />
         <EducationSection />
         <OutroSection />
       </main>

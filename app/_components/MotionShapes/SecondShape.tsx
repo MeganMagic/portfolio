@@ -26,24 +26,24 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
       [
         ".path1",
         { y: 0 },
-        { duration: scene3d.moveY1, at: scene3at, delay: scene3shape1TotalDuration, ease: "easeOut", type: "spring" },
+        { at: scene3at, delay: scene3shape1TotalDuration, duration: scene3d.moveY1, ease: "easeOut", type: "spring" },
       ],
       [".path1", { pathLength: 1 }, { duration: scene3d.pathLength1, ease: "easeInOut", type: "spring" }],
     ]);
     animate([
-      [".path2", { pathLength: 0 }, { duration: scene3at }],
       [
         ".path2",
         { pathLength: 1 },
         {
-          duration: scene3d.pathLength1,
+          at: scene3at,
           delay: scene3shape1TotalDuration + scene3d.moveY1,
+          duration: scene3d.pathLength1,
           ease: "easeInOut",
           type: "spring",
         },
       ],
     ]);
-  }, []);
+  }, [animate]);
 
   return (
     <div ref={scope} style={{ width: "fit-content", zIndex: 2 }}>
@@ -58,14 +58,14 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
           pathLength={0}
           style={{ y: 86 }}
         />
-        <path
+        <motion.path
           className="path2"
           d="M50 143L100 93L150 143"
           stroke="#00C676"
           strokeWidth="72"
           strokeLinecap="round"
           strokeLinejoin="round"
-          pathLength={0}
+          pathLength={0.001}
         />
       </motion.svg>
     </div>
