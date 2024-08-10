@@ -31,7 +31,7 @@ const FirstShape = () => {
       >
         <motion.path
           className="path1"
-          d={originalPath}
+          d="M 50 140.5 L 100 64 L 150 140.5"
           stroke="#007AFF"
           strokeWidth="72"
           strokeLinecap="round"
@@ -45,5 +45,3 @@ const FirstShape = () => {
 };
 
 export default FirstShape;
-
-const originalPath = "M 50 140.5 L 100 64 L 150 140.5";

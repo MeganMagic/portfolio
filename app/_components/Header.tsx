@@ -12,10 +12,10 @@ import { useSectionWatch } from "./SectionWatcher";
 interface HeaderProps extends HTMLMotionProps<"header"> {}
 
 const navItems = [
+  { label: "기술", id: "skill" },
   { label: "경력", id: "experience" },
   { label: "프로젝트 상세", id: "project" },
   { label: "블로그", id: "blog" },
-  { label: "기술", id: "skill" },
   { label: "Github", id: "Github", link: "https://github.com/MeganMagic" },
 ];
 
