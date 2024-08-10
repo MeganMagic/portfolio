@@ -26,22 +26,22 @@ model project {
   period    String        @db.VarChar(30)
   member    String        @db.VarChar(100)
   skills    String[]      @db.VarChar(50)
-  items     ProjectItem[]
   links     Json[]        @db.Json
+  items     ProjectItem[]
 }
 
 model ProjectItem {
   id        Int      @id @default(autoincrement())
   title     String   @db.VarChar(150)
   content   String[] @db.VarChar(255)
-  project   project? @relation(fields: [projectId], references: [id])
   projectId Int?
+  project   project? @relation(fields: [projectId], references: [id])
 }
 
 model intro {
   id     Int    @id @default(autoincrement())
   title  String @db.VarChar(100)
-  detail String @db.Text
+  detail String
 }
 
 model blog {
@@ -56,13 +56,8 @@ model skill {
   id       Int      @id @default(autoincrement())
   category Category
   items    String[] @db.VarChar(255)
-}
-
-enum Category {
-  FRONTEND
-  ENV
-  DESIGN
-  ETC
+  item     String   @default("") @db.VarChar(255)
+  blobUrl  String   @default("") @db.VarChar(255)
 }
 
 model education {
@@ -71,4 +66,12 @@ model education {
   sub_title String   @db.VarChar(150)
   period    String   @db.VarChar(50)
   items     String[] @db.VarChar(255)
+}
+
+enum Category {
+  FRONTEND
+  FRONTEND_LIBRARY
+  ENV
+  DESIGN
+  ETC
 }
