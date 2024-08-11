@@ -52,7 +52,7 @@ const SkillItems = ({ skills }: SkillItemsProps) => {
           <button
             key={`nav-item-${value}`}
             className={cn(
-              "text-xs md:text-base font-medium text-gray-400 px-3 py-1 rounded-full",
+              "text-sm sm:text-base font-medium text-gray-400 px-2 sm:px-3 py-1 rounded-full",
               activeCategory === value && " text-gray-700",
             )}
             onClickCapture={e => handleCategoryClick(e, value)}
@@ -67,7 +67,7 @@ const SkillItems = ({ skills }: SkillItemsProps) => {
           transition={{ duration: 0.5, type: "spring", stiffness: 700, damping: 30 }}
         />
       </nav>
-      <div className="flex flex-wrap gap-4 max-w-96">
+      <div className="flex flex-wrap gap-4 max-w-96 justify-center">
         {skills.map(skill => (
           <SkillItem
             key={`skill-item-${skill.id}`}
