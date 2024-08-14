@@ -25,6 +25,10 @@ const nextConfig = {
         hostname: "velog.velcdn.com",
         pathname: "/images/mari/**",
       },
+      {
+        protocol: "https",
+        hostname: "lh8zlkkhlslw0zyz.public.blob.vercel-storage.com",
+      },
     ],
   },
 };
