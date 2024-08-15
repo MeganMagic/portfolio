@@ -39,9 +39,10 @@ model ProjectItem {
 }
 
 model intro {
-  id     Int    @id @default(autoincrement())
-  title  String @db.VarChar(100)
-  detail String
+  id      Int     @id @default(autoincrement())
+  title   String  @db.VarChar(100)
+  detail  String
+  blobUrl String? @db.VarChar(255)
 }
 
 model blog {

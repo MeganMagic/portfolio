@@ -20,11 +20,10 @@ export default function Home() {
         flex flex-col items-center relative
       "
       >
-        <MainSection />
         <Header className="hidden sm:flex mb-10" />
-
-        <SkillSection />
+        <MainSection />
         <IntroSection />
+        <SkillSection />
         <ExperienceSection />
         <ProjectSection />
         <BlogSection />
