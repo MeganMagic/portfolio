@@ -17,6 +17,8 @@ model experience {
   is_active Boolean? @default(false)
   sub_title String?  @db.VarChar(100)
   index     Int      @default(0)
+  skill_ids Int[]
+  category  String?  @db.VarChar(100)
 }
 
 model project {
@@ -39,9 +41,10 @@ model ProjectItem {
 }
 
 model intro {
-  id     Int    @id @default(autoincrement())
-  title  String @db.VarChar(100)
-  detail String
+  id      Int     @id @default(autoincrement())
+  title   String  @db.VarChar(100)
+  detail  String
+  blobUrl String? @db.VarChar(255)
 }
 
 model blog {
