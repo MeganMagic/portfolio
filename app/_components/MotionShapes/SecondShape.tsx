@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { motion, useAnimate } from "framer-motion";
 
@@ -15,6 +15,7 @@ interface SecondShapeProps {}
 
 const SecondShape: React.FC<SecondShapeProps> = () => {
   const [scope, animate] = useAnimate();
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
     // scene1
@@ -42,11 +43,17 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
           type: "spring",
         },
       ],
-    ]);
+    ]).then(() => setIsDone(true));
   }, [animate]);
 
   return (
-    <div ref={scope} style={{ width: "fit-content", zIndex: 2 }}>
+    <motion.div
+      ref={scope}
+      style={{ width: "fit-content", zIndex: 2 }}
+      whileHover={isDone ? { y: -30 } : undefined}
+      whileTap={isDone ? { scale: 0.9 } : undefined}
+      transition={{ duration: 0.1, type: "spring", damping: 7, bounce: 0.25 }}
+    >
       <motion.svg className="svg1" width="200" height="200" viewBox="0 0 200 200" fill="none" style={{ x: 50, y: 300 }}>
         <motion.path
           className="path1"
@@ -68,7 +75,7 @@ const SecondShape: React.FC<SecondShapeProps> = () => {
           pathLength={0.001}
         />
       </motion.svg>
-    </div>
+    </motion.div>
   );
 };
 
