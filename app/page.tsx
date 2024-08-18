@@ -21,7 +21,7 @@ export default function Home() {
       "
       >
         <MainSection />
-        <Header className="hidden sm:flex mb-10" />
+        <Header className="mb-10" />
         <IntroSection />
         <SkillSection />
         <ExperienceSection />
