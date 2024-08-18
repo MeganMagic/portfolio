@@ -52,7 +52,7 @@ const SkillItems = ({ skills }: SkillItemsProps) => {
           <button
             key={`nav-item-${value}`}
             className={cn(
-              "text-sm sm:text-base font-medium text-gray-400 px-2 sm:px-3 py-1 rounded-full",
+              "text-sm sm:text-base font-semibold text-gray-400 px-2 sm:px-3 py-1 rounded-full",
               activeCategory === value && " text-gray-700",
             )}
             onClickCapture={e => handleCategoryClick(e, value)}

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { motion, useAnimate } from "framer-motion";
 
@@ -14,6 +14,7 @@ import {
 
 const ThirdShape = () => {
   const [scope, animate] = useAnimate();
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
     // scene1
@@ -35,11 +36,17 @@ const ThirdShape = () => {
       ],
       [".path1", { pathLength: 1 }, { duration: scene3d.pathLength1, at: "-0.3", ease: "easeOut", type: "spring" }],
       [".path2", { scale: 1 }, { duration: scene3d.scaleUp1, at: "-0.2", ease: "easeOut", type: "spring" }],
-    ]);
+    ]).then(() => setIsDone(true));
   }, []);
 
   return (
-    <div ref={scope} style={{ width: "fit-content", zIndex: 1 }}>
+    <motion.div
+      ref={scope}
+      style={{ width: "fit-content", zIndex: 1 }}
+      whileHover={isDone ? { y: -30 } : undefined}
+      whileTap={isDone ? { scale: 0.9 } : undefined}
+      transition={{ duration: 0.1, type: "spring", damping: 7, bounce: 0.25 }}
+    >
       <motion.svg
         className="svg1"
         width="200"
@@ -65,7 +72,7 @@ const ThirdShape = () => {
           scale={0}
         />
       </motion.svg>
-    </div>
+    </motion.div>
   );
 };
 
