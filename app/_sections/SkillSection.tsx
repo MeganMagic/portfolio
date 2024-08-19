@@ -1,5 +1,5 @@
 import SectionWatcher from "@/_components/SectionWatcher";
-import SkillItems from "@/_components/SkillItems";
+import SkillItems from "@/_components/skill/SkillItems";
 import SlideUpInView from "@/_components/SlideUpInView";
 import prisma from "@/lib/prisma";
 
