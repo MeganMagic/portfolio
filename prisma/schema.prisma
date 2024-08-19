@@ -29,6 +29,7 @@ model project {
   member    String        @db.VarChar(100)
   skills    String[]      @db.VarChar(50)
   links     Json[]        @db.Json
+  skill_ids Int[]         @default([])
   items     ProjectItem[]
 }
 
