@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import prisma from "@/lib/prisma";
 import { parsePrismaJSON } from "@/utils/parsePrisma";
+import { getSkills } from "@/utils/api";
+import SkillItem from "../skill/SkillItem";
 
 interface ProjectModalProps {
   id: number;
@@ -13,10 +15,13 @@ async function getProjectById(id: number) {
   const responseProject = await prisma.project.findUniqueOrThrow({ where: { id } });
   const responseItems = await prisma.projectItem.findMany({ where: { projectId: id } });
 
-  const { links, ...res } = responseProject;
+  const { links, skill_ids, skills, ...res } = responseProject;
+  const responseSkills = await getSkills(skill_ids);
+
   return {
     links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
     items: responseItems.map(({ title, content }) => ({ title, content })),
+    skills: responseSkills,
     ...res,
   };
 }
@@ -26,59 +31,66 @@ export default async function ProjectModal({ id }: ProjectModalProps) {
 
   return (
     <>
-      <div id="project-modal-header" className="flex flex-col gap-3 md:gap-4 mb-10 md:mb-16">
+      <div id="project-modal-header" className="flex flex-col gap-3 md:gap-6 mb-10 md:mb-16">
         <div className="relative w-8 md:w-12 h-8 md:h-12">
           <Image className="object-contain" src={`/assets/shape-variant-${id}.svg`} fill alt="shape" />
         </div>
 
-        <p className="text-xl md:text-2xl font-semibold leading-normal break-keep">{parse(title)}</p>
-        <div className="text-sm md:text-base font-normal">
-          <p className="mb-1">{period}</p>
-          <p>참여인원 {member}</p>
+        <p className="text-xl md:text-2xl font-semibold leading-normal break-keep mb-4">{parse(title)}</p>
+
+        <div className="flex flex-col gap-1">
+          <p className="text-sm font-medium text-foreground/50">기술 스택</p>
+          <ul className="p-0 flex gap-2 list-none flex-wrap">
+            {skills.map(({ id, item, blobUrl }) => (
+              <li key={`project-info-skill-${id}`} className="indent-0">
+                <SkillItem size="xs" label={item} imageUrl={blobUrl} />
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex gap-5">
+          {[
+            { title: "참여인원", content: member },
+            { title: "기간", content: period },
+            {
+              title: "관련 링크",
+              content: (
+                <div className="flex gap-2">
+                  {links.map(({ href, label }) => (
+                    <Link href={href}>{label}</Link>
+                  ))}
+                </div>
+              ),
+            },
+          ].map(({ title, content }) => (
+            <div key={`project-info-${title}`} className="flex flex-col gap-1">
+              <p className="text-sm font-medium text-foreground/50">{title}</p>
+              <div className="text-sm font-semibold text-foreground/80">{content}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div id="project-modal-content" className="flex flex-col gap-8 md:gap-12">
-        <div className="text-sm md:text-base flex flex-col gap-2">
-          <p className="font-semibold text-base md:text-lg">기술 스택</p>
-          <p>{skills.join(", ")}</p>
-        </div>
-
-        <div className="text-sm md:text-base flex flex-col gap-2">
-          <p className="font-semibold text-base md:text-lg">상세 내용</p>
-          <ol className="list-decimal break-keep">
-            {items.map((item, index) => (
-              <li key={`project-item-${index}`} className="mb-6 md:mb-8 last:mb-0">
-                <span>{item.title}</span>
-                <div className="w-0.5 h-2" />
-                {item.content && (
-                  <ul className="text-foreground/80 marker:text-foreground/60">
-                    {item.content.map((text, contentIndex) => (
-                      <li key={`project-desc-${index}-${contentIndex}`} className="mb-1 last:mb-0">
-                        {text}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        {links && links.length > 0 && (
-          <div className="text-sm md:text-base flex flex-col gap-2">
-            <p className="font-semibold text-base md:text-lg">관련 링크</p>
-            <ul className="text-foreground/80">
-              {links.map((link, index) => (
-                <li key={`project-link-${index}`} className="mb-2">
-                  <Link href={link.href} target="_blacnk">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+      <div id="project-modal-content" className="text-sm md:text-base flex flex-col gap-2">
+        <p className="font-semibold text-base md:text-lg">상세 내용</p>
+        <ol className="list-decimal break-keep">
+          {items.map((item, index) => (
+            <li key={`project-item-${index}`} className="mb-6 md:mb-8 last:mb-0">
+              <span>{item.title}</span>
+              <div className="w-0.5 h-2" />
+              {item.content && (
+                <ul className="text-foreground/80 marker:text-foreground/60">
+                  {item.content.map((text, contentIndex) => (
+                    <li key={`project-desc-${index}-${contentIndex}`} className="mb-1 last:mb-0">
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
       </div>
     </>
   );
