@@ -24,7 +24,6 @@ async function getProjects() {
   return projectsWithSkills;
 }
 
-
 export default async function ProjectSection() {
   const projects = await getProjects();
 
