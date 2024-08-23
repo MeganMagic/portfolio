@@ -1,18 +1,17 @@
 "use client";
 
-import { PlusCircle } from "react-feather";
-
+import { skill } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
-import { skill } from "@prisma/client";
+
 import SkillItem from "../skill/SkillItem";
 
 interface ProjectCardProps {
   id: number;
   title: string;
-  sub_title?: string;
+  sub_title: string;
   skills: skill[];
 }
 
@@ -32,21 +31,21 @@ const ProjectCard = ({ id, title, sub_title, skills }: ProjectCardProps) => {
           <div className="relative mb-2.5 md:mb-4 w-5 md:w-6 h-5 md:h-6">
             <Image
               className="group-hover:hidden object-contain"
-              src={`/assets/shape-variant-${id}.svg`}
+              src={`/assets/shape-variant-${id % 9}.svg`}
               alt="shape"
               fill
               priority={true}
             />
             <Image
               className="hidden group-hover:block object-contain"
-              src={`/assets/shape-variant-${id}-invert.svg`}
+              src={`/assets/shape-variant-${id % 9}-invert.svg`}
               alt="shape"
               fill
               priority={true}
             />
           </div>
           <p className=" text-lg md:text-xl font-semibold md:mb-4 no-underline!important">{parse(title)}</p>
-          <p className="text-sm font-normal opacity-60 hidden md:inline-block">{sub_title}</p>
+          <p className="text-sm font-normal opacity-60 hidden md:inline-block">{parse(sub_title)}</p>
         </div>
 
         <ul className="p-0 flex gap-2 list-none flex-wrap">
