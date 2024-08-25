@@ -9,7 +9,7 @@ import parse from "html-react-parser";
 
 import Shape from "@/assets/shape-sparkle.svg";
 
-import SkillItem from "./SkillItem";
+import SkillItem from "./skill/SkillItem";
 
 interface ExpCardProps extends Omit<experience, "skill_ids"> {
   skills: skill[];
