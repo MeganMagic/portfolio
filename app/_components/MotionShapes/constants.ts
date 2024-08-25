@@ -42,3 +42,17 @@ export const scene3shape3Durations = {
   pathLength1: 1,
   scaleUp1: 0.5,
 };
+
+export const jumpOptions = [
+  {
+    duration: 0.15,
+    ease: "easeInOut" as Easing,
+  },
+  {
+    duration: 1,
+    ease: "easeInOut" as Easing,
+    type: "spring" as SpringType,
+    damping: 7,
+    bounce: 0.25,
+  },
+];

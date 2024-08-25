@@ -1,56 +1,65 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronRight } from "react-feather";
+
+import { experience, skill } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
-import Link from "next/link";
 
 import Shape from "@/assets/shape-sparkle.svg";
 
-interface ExpCardProps {
-  id: number;
-  title: string;
-  subTitle?: string;
-  period: string;
-  items: string[];
-  links?: { label: string; href: string }[];
-  onGoing?: boolean;
+import SkillItem from "./skill/SkillItem";
+
+interface ExpCardProps extends Omit<experience, "skill_ids"> {
+  skills: skill[];
 }
 
-const ExpCard = ({ id, period, onGoing, title, subTitle, items, links }: ExpCardProps) => {
+const ExpCard = ({ id, period, is_active, title, sub_title, skills, items }: ExpCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleDetail = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <div className="card">
-      <div className="flex gap-2.5 items-center mb-3">
-        <Shape className={cn(onGoing ? "text-primary" : "text-foreground/30")} />
+    <div className="grid sm:grid-cols-3 sm:gap-x-10 sm:items-start">
+      <div className="flex gap-2.5 sm:justify-end items-center mb-3">
+        <Shape className={cn(is_active ? "text-primary" : "text-foreground/30")} />
         <p className="text-sm md:text-base font-normal text-foreground/60">{period}</p>
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="pl-6 sm:pl-0 sm:col-span-2 flex flex-col gap-3">
         <div className="flex flex-col gap-1">
-          <p className="text-sm md:text-base font-semibold ">{parse(title)}</p>
-          {subTitle && <p className="text-xs md:text-sm font-normal text-foreground/60">{subTitle}</p>}
+          <p className="text-md md:text-lg font-semibold ">{title}</p>
+          {sub_title && (
+            <p className="text-xs md:text-sm font-normal text-foreground/60 whitespace-pre-wrap">{parse(sub_title)}</p>
+          )}
         </div>
 
-        <ul className="list-disc list-inside -indent-5 pl-6">
-          {items.map((data, index) => (
-            <li
-              key={`exp-${id}-item-${index}`}
-              className="text-sm md:text-base font-normal mb-1 last:mb-0 text-foreground/80"
-            >
-              {data}
+        <ul className="p-0 flex gap-2 list-none flex-wrap">
+          {skills.map(skill => (
+            <li key={`experience-${id}-skill-${skill.id}`} className="indent-0">
+              <SkillItem size="xs" label={skill.item} imageUrl={skill.blobUrl} />
             </li>
           ))}
         </ul>
 
-        {links && links.length > 0 && (
-          <div className="flex gap-1 text-xs md:text-sm text-foreground/60">
-            <p>관련 링크: </p>
-            {links.map((link, index) => (
-              <div key={`exp-${id}-link-${index}`}>
-                <Link href={link.href} target="_blank">
-                  {link.label}
-                </Link>
-                {index !== links.length - 1 && ","}
-              </div>
+        <button className="text-primary/75 flex items-center gap-1 mt-2" onClick={toggleDetail}>
+          <ChevronRight className={cn("w-4 h-4 transition-transform", isExpanded && "rotate-90")} />
+          <p className="text-left text-xs md:text-sm">주요 업무 내용 {isExpanded ? "가리기" : "보기"}</p>
+        </button>
+        {isExpanded && (
+          <ul className="list-disc list-inside bg-foreground/5 rounded-lg p-4 -indent-5 pl-10">
+            {items.map((data, index) => (
+              <li
+                key={`exp-${id}-detail-${index}`}
+                className="text-sm md:text-base font-normal mb-1 last:mb-0 text-foreground/80"
+              >
+                {data}
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
     </div>

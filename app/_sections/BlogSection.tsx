@@ -18,8 +18,12 @@ export default async function BlogSection() {
   return (
     <SectionWatcher id="blog">
       <SlideUpInView>
-        <h2>블로그</h2>
-        <p className="section-title">문제 해결 과정을 블로그에 기록했습니다.</p>
+        <h2 className="section-eyebrow">블로그</h2>
+        <p className="section-title">
+          자세한 문제해결 과정은
+          <br />
+          블로그에서 확인할 수 있습니다.
+        </p>
 
         <div className="cards grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-11">
           {blogs.map(props => (
