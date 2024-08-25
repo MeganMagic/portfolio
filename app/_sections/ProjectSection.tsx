@@ -12,6 +12,9 @@ async function getProjects() {
       sub_title: true,
       skill_ids: true,
     },
+    orderBy: {
+      row_number: "asc",
+    },
   });
 
   const projectsWithSkills = await Promise.all(

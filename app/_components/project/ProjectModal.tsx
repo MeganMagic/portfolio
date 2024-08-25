@@ -1,3 +1,4 @@
+import { ratio } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
@@ -15,7 +16,7 @@ interface ProjectModalProps {
 
 async function getProjectById(id: number) {
   const responseProject = await prisma.project.findUniqueOrThrow({ where: { id } });
-  const responseItems = await prisma.projectItem.findMany({ where: { projectId: id } });
+  const responseItems = await prisma.projectItem.findMany({ where: { projectId: id }, orderBy: { row_number: "asc" } });
 
   const { links, skill_ids, ...res } = responseProject;
   const responseSkills = await getSkills(skill_ids);
@@ -23,7 +24,7 @@ async function getProjectById(id: number) {
   return {
     ...res,
     links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
-    items: responseItems.map(({ title, content }) => ({ title, content })),
+    items: responseItems,
     skills: responseSkills,
   };
 }
@@ -97,6 +98,20 @@ export default async function ProjectModal({ id }: ProjectModalProps) {
                     </li>
                   ))}
                 </ul>
+              )}
+              {item.blobUrl && (
+                <div
+                  className={cn(
+                    "relative w-full  mt-4",
+                    item.image_ratio === ratio.SQUARE
+                      ? "h-[312px] md:h-[602px]"
+                      : item.image_ratio === ratio.PORTRAIT
+                        ? "h-[468px] md:h-[903px]"
+                        : "h-52 md:h-96",
+                  )}
+                >
+                  <Image className="object-contain object-left-top" fill src={item.blobUrl} alt={item.title} />
+                </div>
               )}
             </li>
           ))}
