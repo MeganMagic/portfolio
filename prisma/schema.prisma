@@ -22,23 +22,27 @@ model experience {
 }
 
 model project {
-  id        Int           @id @default(autoincrement())
-  title     String        @db.VarChar(100)
-  sub_title String        @db.VarChar(150)
-  period    String        @db.VarChar(30)
-  member    String        @db.VarChar(100)
-  skills    String[]      @db.VarChar(50)
-  links     Json[]        @db.Json
-  skill_ids Int[]         @default([])
-  items     ProjectItem[]
+  id         Int           @id @default(autoincrement())
+  title      String        @db.VarChar(100)
+  sub_title  String        @db.VarChar(150)
+  period     String        @db.VarChar(30)
+  member     String        @db.VarChar(100)
+  skills     String[]      @db.VarChar(50)
+  links      Json[]        @db.Json
+  skill_ids  Int[]         @default([])
+  row_number Int?
+  items      ProjectItem[]
 }
 
 model ProjectItem {
-  id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(150)
-  content   String[] @db.VarChar(255)
-  projectId Int?
-  project   project? @relation(fields: [projectId], references: [id])
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(150)
+  content     String[] @db.VarChar(255)
+  projectId   Int?
+  blobUrl     String?  @db.VarChar(255)
+  row_number  Int?
+  image_ratio ratio?
+  project     project? @relation(fields: [projectId], references: [id])
 }
 
 model intro {
@@ -78,4 +82,10 @@ enum Category {
   ENV
   DESIGN
   ETC
+}
+
+enum ratio {
+  PORTRAIT
+  LANDSCAPE
+  SQUARE
 }
