@@ -1,6 +1,6 @@
 import SectionWatcher from "@/_components/SectionWatcher";
-import SkillItems from "@/_components/SkillItems";
 import SlideUpInView from "@/_components/SlideUpInView";
+import SkillItems from "@/_components/skill/SkillItems";
 import prisma from "@/lib/prisma";
 
 async function getAllSkills() {

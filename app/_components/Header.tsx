@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
 
 import cn from "classnames";
@@ -48,8 +48,7 @@ const Header = ({ className, ...props }: HeaderProps) => {
     ]);
   }, [isExpanded]);
 
-  const mobileMenuRef = useRef<HTMLUListElement | null>(null);
-  useOnClickOutside(mobileMenuRef, () => setIsExpanded(false));
+  useOnClickOutside(scope, () => setIsExpanded(false));
 
   return (
     <header className="w-full sm:w-auto sticky top-4 z-50 px-3 sm:px-0" {...props} ref={scope}>
@@ -101,7 +100,6 @@ const Header = ({ className, ...props }: HeaderProps) => {
           isExpanded ? "pointer-events-auto" : "pointer-events-none",
         )}
         style={{ clipPath: "inset(0% 50% 100% 50% round 10px)" }}
-        ref={mobileMenuRef}
       >
         {navItems.map(({ label, id }) => (
           <Link key={`header-item-m-${id}`} href={`#${id}`} className={cn("mobile-menu-item", "no-underline")}>

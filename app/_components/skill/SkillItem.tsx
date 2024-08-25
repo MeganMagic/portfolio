@@ -51,7 +51,7 @@ const SkillItem = ({ size = "md", label, imageUrl, isActive = true }: SkillItemP
   return (
     <div
       className={cn(
-        "relative group transition-all",
+        "relative group/skill transition-all",
         size === "md" && "w-12 h-12",
         size === "sm" && "w-8 h-8",
         size === "xs" && "w-6 h-6",
@@ -68,7 +68,7 @@ const SkillItem = ({ size = "md", label, imageUrl, isActive = true }: SkillItemP
       <p
         className={cn(
           "absolute -bottom-1 translate-y-full left-1/2 -translate-x-1/2 px-1.5 py-0.5 bg-foreground/75 text-background rounded text-xs md:text-sm text-center whitespace-nowrap font-normal invisible z-10",
-          isActive && "group-hover:visible",
+          isActive && "group-hover/skill:visible",
         )}
       >
         {label}
