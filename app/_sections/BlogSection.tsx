@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { ExternalLink } from "react-feather";
 
 import BlogCard from "@/_components/BlogCard";
 import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
+import CTAButton from "@/_components/buttons/CTAButton";
 import prisma from "@/lib/prisma";
 
 const BLOG_LINK = "https://velog.io/@mari";
@@ -31,13 +32,12 @@ export default async function BlogSection() {
           ))}
         </div>
 
-        <div className="flex justify-center">
-          <Link className="no-underline w-full md:w-fit" href={BLOG_LINK} target="_blank">
-            <button className="w-full md:w-40 py-3 border border-foreground/15 rounded-md md:rounded-lg bg-transparent hover:bg-foreground/5 text-sm font-semibold text-foreground/45 hover:text-foreground/60">
-              더 보기
-            </button>
-          </Link>
-        </div>
+        <CTAButton
+          label="블로그로 이동"
+          suffix={<ExternalLink className="w-4 h-4" />}
+          link={BLOG_LINK}
+          className="mx-auto"
+        />
       </SlideUpInView>
     </SectionWatcher>
   );
