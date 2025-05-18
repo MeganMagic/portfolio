@@ -31,13 +31,13 @@ const ExpCard = ({ id, period, is_active, title, sub_title, skills, items }: Exp
 
       <div className="pl-6 sm:pl-0 sm:col-span-2 flex flex-col gap-3">
         <div className="flex flex-col gap-1">
-          <p className="text-md md:text-lg font-semibold ">{title}</p>
+          <p className="text-base md:text-lg font-semibold ">{title}</p>
           {sub_title && (
             <p className="text-xs md:text-sm font-normal text-foreground/60 whitespace-pre-wrap">{parse(sub_title)}</p>
           )}
         </div>
 
-        <ul className="p-0 flex gap-2 list-none flex-wrap">
+        <ul className="p-0 flex gap-2 list-none flex-wrap max-w-80 md:max-w-none">
           {skills.map(skill => (
             <li key={`experience-${id}-skill-${skill.id}`} className="indent-0">
               <SkillItem size="xs" label={skill.item} imageUrl={skill.blobUrl} />
