@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import Header from "@/_components/Header";
 import BlogSection from "@/_sections/BlogSection";
 import EducationSection from "@/_sections/EducationSection";
@@ -11,8 +13,11 @@ import SkillSection from "@/_sections/SkillSection";
 import { SectionWatchProvider } from "./_components/SectionWatcher";
 
 export default function Home() {
+  const t = useTranslations("HomePage");
+
   return (
     <SectionWatchProvider>
+      <h1>{t("title")}</h1>
       <main
         className="
         w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
