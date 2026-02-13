@@ -1,11 +1,8 @@
 "use client";
 
-import { Download } from "react-feather";
-
 import FirstShape from "@/_components/MotionShapes/FirstShape";
 import SecondShape from "@/_components/MotionShapes/SecondShape";
 import ThirdShape from "@/_components/MotionShapes/ThirdShape";
-import CTAButton from "@/_components/buttons/CTAButton";
 
 const MainSection = () => {
   return (
@@ -29,12 +26,6 @@ const MainSection = () => {
         <br />
         함께 제품을 만들고 성장시킬 곳을 찾고 있습니다.
       </p>
-
-      <CTAButton
-        label="이력서 다운로드"
-        suffix={<Download className="w-4 h-4" />}
-        link={process.env.NEXT_PUBLIC_RESUME_DOWNLOAD_URL}
-      />
     </div>
   );
 };
