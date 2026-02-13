@@ -15,9 +15,6 @@ const OutroSection = () => {
         </p>
 
         <div className="w-72 md:w-80 mx-auto grid grid-cols-3 text-sm md:text-base gap-2 md:gap-3 p-6 md:p-8 rounded-2xl bg-dark/5 dark:bg-light/10">
-          <p className="font-semibold">전화번호</p>
-          <p className="col-span-2">010.3215.4462</p>
-
           <p className="font-semibold">이메일</p>
           <p className="col-span-2">sjk.mari@gmail.com</p>
 
