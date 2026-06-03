@@ -1,5 +1,11 @@
 import ProjectModalComponent from "@/_components/project/ProjectModal";
 
-export default function ProjectModal({ params: { id } }: { params: { id: string } }) {
+interface ProjectModalPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function ProjectModal({ params }: ProjectModalPageProps) {
+  const { id } = await params;
+
   return <ProjectModalComponent id={Number(id)} />;
 }

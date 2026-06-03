@@ -1,7 +1,8 @@
-import { education } from "@prisma/client";
 import parse from "html-react-parser";
 
-interface EducationCardProps extends education {}
+import type { Education } from "@/data/types";
+
+type EducationCardProps = Education;
 
 const EducationCard = ({ id, period, title, sub_title, items }: EducationCardProps) => {
   return (

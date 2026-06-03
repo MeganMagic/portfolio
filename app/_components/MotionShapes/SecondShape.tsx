@@ -11,9 +11,7 @@ import {
   scene1Stagger,
 } from "./constants";
 
-interface SecondShapeProps {}
-
-const SecondShape: React.FC<SecondShapeProps> = () => {
+const SecondShape: React.FC = () => {
   const [scope, animate] = useAnimate();
   const [isDone, setIsDone] = useState(false);
 

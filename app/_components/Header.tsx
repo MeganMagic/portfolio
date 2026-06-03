@@ -12,7 +12,7 @@ import useOnClickOutside from "@/utils/useOnClickOutside";
 import Logo from "./Logo";
 import { useSectionWatch } from "./SectionWatcher";
 
-interface HeaderProps extends React.HTMLAttributes<HTMLHeadElement> {}
+type HeaderProps = React.HTMLAttributes<HTMLHeadElement>;
 
 const navItems = [
   { label: "기술", id: "skill" },

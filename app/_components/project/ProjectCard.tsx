@@ -1,10 +1,11 @@
 "use client";
 
-import { skill } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
+
+import type { Skill } from "@/data/types";
 
 import SkillItem from "../skill/SkillItem";
 
@@ -12,7 +13,7 @@ interface ProjectCardProps {
   id: number;
   title: string;
   sub_title: string;
-  skills: skill[];
+  skills: Skill[];
 }
 
 const ProjectCard = ({ id, title, sub_title, skills }: ProjectCardProps) => {
