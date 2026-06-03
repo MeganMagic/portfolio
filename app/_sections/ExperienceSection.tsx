@@ -3,35 +3,21 @@ import React from "react";
 import ExpCard from "@/_components/ExpCard";
 import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
-import prisma from "@/lib/prisma";
-import { parsePrismaJSON } from "@/utils/parsePrisma";
+import experiences from "@/data/experiences";
+import skills from "@/data/skills";
 
-async function getSkills(ids: number[]) {
-  const response = await prisma.skill.findMany({
-    where: { OR: ids.map(id => ({ id })) },
-    orderBy: { category: "asc" },
-  });
-  return response;
+function getSkillsByIds(ids: number[]) {
+  return ids
+    .map(id => skills.find(skill => skill.id === id))
+    .filter((skill): skill is (typeof skills)[number] => Boolean(skill))
+    .sort((a, b) => a.category.localeCompare(b.category));
 }
 
-async function getExperience() {
-  const experiences = await prisma.experience.findMany({ orderBy: { index: "asc" } });
-
-  const expWithSkills = await Promise.all(
-    experiences.map(async ({ skill_ids, ...exp }) => {
-      const skills = await getSkills(skill_ids);
-      return { ...exp, skills };
-    }),
-  );
-
-  return expWithSkills.map(({ links, ...res }) => ({
-    links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
-    ...res,
+export default function ExperienceSection() {
+  const data = experiences.map(({ skill_ids, ...exp }) => ({
+    ...exp,
+    skills: getSkillsByIds(skill_ids),
   }));
-}
-
-export default async function ExperienceSection() {
-  const data = await getExperience();
 
   const works = data.filter(({ category }) => category === "WORK");
   const projects = data.filter(({ category }) => category === "PROJECT");

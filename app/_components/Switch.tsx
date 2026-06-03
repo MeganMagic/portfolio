@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import cn from "classnames";
 
-interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type SwitchProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Switch = ({ onChange, defaultChecked }: SwitchProps) => {
   const [checked, setChecked] = useState(defaultChecked ?? false);

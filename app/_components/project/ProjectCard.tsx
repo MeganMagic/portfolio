@@ -1,10 +1,11 @@
 "use client";
 
-import { skill } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
+
+import type { Skill } from "@/data/types";
 
 import SkillItem from "../skill/SkillItem";
 
@@ -12,7 +13,7 @@ interface ProjectCardProps {
   id: number;
   title: string;
   sub_title: string;
-  skills: skill[];
+  skills: Skill[];
 }
 
 const ProjectCard = ({ id, title, sub_title, skills }: ProjectCardProps) => {
@@ -50,7 +51,7 @@ const ProjectCard = ({ id, title, sub_title, skills }: ProjectCardProps) => {
 
         <ul className="p-0 flex gap-2 list-none flex-wrap">
           {skills.map(skill => (
-            <li key={`project-${id}-skill-${id}`} className="indent-0">
+            <li key={`project-${id}-skill-${skill.id}`} className="indent-0">
               <SkillItem label={skill.item} imageUrl={skill.blobUrl} size="xs" />
             </li>
           ))}

@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 
-import { Category, skill } from "@prisma/client";
 import cn from "classnames";
 import { motion, useMotionValue } from "framer-motion";
+
+import type { Category, Skill } from "@/data/types";
 
 // import ShapeDesign from "@/assets/shape-design.svg";
 // import ShapeEnv from "@/assets/shape-env.svg";
@@ -13,7 +14,7 @@ import { motion, useMotionValue } from "framer-motion";
 import SkillItem from "./SkillItem";
 
 interface SkillItemsProps {
-  skills: skill[];
+  skills: Skill[];
 }
 const SkillItems = ({ skills }: SkillItemsProps) => {
   const [activeCategory, setActiveCategory] = useState<string>();
@@ -43,12 +44,14 @@ const SkillItems = ({ skills }: SkillItemsProps) => {
   return (
     <div className="flex flex-col gap-8 items-center">
       <nav className="bg-gray-100 p-1.5 rounded-full flex items-center relative">
-        {[
-          { name: "프론트엔드", value: Category.FRONTEND },
-          { name: "라이브러리", value: Category.FRONTEND_LIBRARY },
-          { name: "환경 및 배포", value: Category.ENV },
-          { name: "디자인", value: Category.DESIGN },
-        ].map(({ name, value }) => (
+        {(
+          [
+            { name: "프론트엔드", value: "FRONTEND" },
+            { name: "라이브러리", value: "FRONTEND_LIBRARY" },
+            { name: "환경 및 배포", value: "ENV" },
+            { name: "디자인", value: "DESIGN" },
+          ] satisfies { name: string; value: Category }[]
+        ).map(({ name, value }) => (
           <button
             key={`nav-item-${value}`}
             className={cn(

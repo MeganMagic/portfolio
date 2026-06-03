@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 import useOnClickOutside from "@/utils/useOnClickOutside";
 
-interface ModalProps extends React.PropsWithChildren {}
+type ModalProps = React.PropsWithChildren;
 
 const Modal = ({ children }: ModalProps) => {
   const router = useRouter();

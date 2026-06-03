@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { ChevronRight } from "react-feather";
 
-import { experience, skill } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 
 import Shape from "@/assets/shape-sparkle.svg";
+import type { Experience, Skill } from "@/data/types";
 
 import SkillItem from "./skill/SkillItem";
 
-interface ExpCardProps extends Omit<experience, "skill_ids"> {
-  skills: skill[];
+interface ExpCardProps extends Omit<Experience, "skill_ids"> {
+  skills: Skill[];
 }
 
 const ExpCard = ({ id, period, is_active, title, sub_title, skills, items }: ExpCardProps) => {

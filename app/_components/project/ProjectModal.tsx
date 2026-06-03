@@ -1,12 +1,11 @@
-import { ratio } from "@prisma/client";
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-import prisma from "@/lib/prisma";
-import { getSkills } from "@/utils/api";
-import { parsePrismaJSON } from "@/utils/parsePrisma";
+import projects from "@/data/projects";
+import skills from "@/data/skills";
 
 import SkillItem from "../skill/SkillItem";
 
@@ -14,28 +13,33 @@ interface ProjectModalProps {
   id: number;
 }
 
-async function getProjectById(id: number) {
-  const responseProject = await prisma.project.findUniqueOrThrow({ where: { id } });
-  const responseItems = await prisma.projectItem.findMany({ where: { projectId: id }, orderBy: { row_number: "asc" } });
+function getProjectById(id: number) {
+  const project = projects.find(p => p.id === id);
+  if (!project) {
+    notFound();
+  }
 
-  const { links, skill_ids, ...res } = responseProject;
-  const responseSkills = await getSkills(skill_ids);
+  const projectSkills = project.skill_ids
+    .map(skillId => skills.find(s => s.id === skillId))
+    .filter((s): s is (typeof skills)[number] => Boolean(s))
+    .sort((a, b) => a.category.localeCompare(b.category));
+
+  const items = [...project.items].sort((a, b) => (a.row_number ?? 0) - (b.row_number ?? 0));
 
   return {
-    ...res,
-    links: links.map(link => parsePrismaJSON<{ href: string; label: string }>(link)),
-    items: responseItems,
-    skills: responseSkills,
+    ...project,
+    skills: projectSkills,
+    items,
   };
 }
 
-export default async function ProjectModal({ id }: ProjectModalProps) {
-  const { title, sub_title, member, period, skills, links, items } = await getProjectById(id);
+export default function ProjectModal({ id }: ProjectModalProps) {
+  const { title, sub_title, member, period, skills: projectSkills, links, items } = getProjectById(id);
 
   const skillsElement = (
     <ul className="p-0 flex gap-2 list-none flex-wrap">
-      {skills.map(({ id, item, blobUrl }) => (
-        <li key={`project-info-skill-${id}`} className="indent-0">
+      {projectSkills.map(({ id: skillId, item, blobUrl }) => (
+        <li key={`project-info-skill-${skillId}`} className="indent-0">
           <SkillItem size="xs" label={item} imageUrl={blobUrl} />
         </li>
       ))}
@@ -103,9 +107,9 @@ export default async function ProjectModal({ id }: ProjectModalProps) {
                 <div
                   className={cn(
                     "relative w-full  mt-4",
-                    item.image_ratio === ratio.SQUARE
+                    item.image_ratio === "SQUARE"
                       ? "h-[312px] md:h-[602px]"
-                      : item.image_ratio === ratio.PORTRAIT
+                      : item.image_ratio === "PORTRAIT"
                         ? "h-[468px] md:h-[903px]"
                         : "h-52 md:h-96",
                   )}
