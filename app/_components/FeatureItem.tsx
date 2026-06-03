@@ -1,9 +1,10 @@
-import { intro } from "@prisma/client";
 import { motion, MotionProps } from "framer-motion";
 import parse from "html-react-parser";
 import Image from "next/image";
 
-interface FeatureItemProps extends intro, MotionProps {}
+import type { Intro } from "@/data/types";
+
+interface FeatureItemProps extends Intro, MotionProps {}
 
 const FeatureItem = ({ id, blobUrl, title, detail, ...props }: FeatureItemProps) => {
   return (

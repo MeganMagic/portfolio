@@ -9,7 +9,7 @@ import Link from "next/link";
 // import LangSelect from "./LangSelect";
 import Logo from "./Logo";
 
-interface NavigationProps extends React.ComponentPropsWithoutRef<"nav"> {}
+type NavigationProps = React.ComponentPropsWithoutRef<"nav">;
 
 type NavRef = React.ComponentPropsWithRef<"nav">["ref"];
 

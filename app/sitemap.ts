@@ -1,14 +1,9 @@
-import prisma from "./lib/prisma";
+import projects from "@/data/projects";
 
 import type { MetadataRoute } from "next";
 
-async function getProjectIds() {
-  return prisma.project.findMany({ select: { id: true } }).then(res => res.map(({ id }) => id));
-}
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const projectIds = await getProjectIds();
-  const projectSites: MetadataRoute.Sitemap = projectIds.map(id => ({
+export default function sitemap(): MetadataRoute.Sitemap {
+  const projectSites: MetadataRoute.Sitemap = projects.map(({ id }) => ({
     url: `https://www.meganmagic.com/project/${id}`,
     lastModified: new Date(),
     changeFrequency: "monthly",

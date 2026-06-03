@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: __dirname,
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.(".svg"));
     config.module.rules.push(
@@ -17,19 +18,6 @@ const nextConfig = {
     );
     fileLoaderRule.exclude = /\.svg$/i;
     return config;
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "velog.velcdn.com",
-        pathname: "/images/mari/**",
-      },
-      {
-        protocol: "https",
-        hostname: "lh8zlkkhlslw0zyz.public.blob.vercel-storage.com",
-      },
-    ],
   },
 };
 

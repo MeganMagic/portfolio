@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 
-import { project, skill } from "@prisma/client";
+import type { Project, Skill } from "@/data/types";
 
 import ProjectCard from "./ProjectCard";
 import CTAButton from "../buttons/CTAButton";
 
-type OmittedProject = Pick<project, "id" | "title" | "sub_title"> & {
-  skills: skill[];
+type OmittedProject = Pick<Project, "id" | "title" | "sub_title"> & {
+  skills: Skill[];
 };
 
 interface ProjectCardsProps {

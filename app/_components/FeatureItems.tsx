@@ -2,13 +2,14 @@
 
 import { useEffect } from "react";
 
-import { intro } from "@prisma/client";
 import { stagger, useAnimate, useInView } from "framer-motion";
+
+import type { Intro } from "@/data/types";
 
 import FeatureItem from "./FeatureItem";
 
 interface FeatureItemsProps {
-  features: intro[];
+  features: Intro[];
 }
 
 const staggerMenuItems = stagger(0.2, { startDelay: 0.1 });

@@ -4,18 +4,11 @@ import BlogCard from "@/_components/BlogCard";
 import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import CTAButton from "@/_components/buttons/CTAButton";
-import prisma from "@/lib/prisma";
+import blogs from "@/data/blogs";
 
 const BLOG_LINK = "https://velog.io/@mari";
 
-async function getBlogs() {
-  const response = await prisma.blog.findMany();
-  return response;
-}
-
-export default async function BlogSection() {
-  const blogs = await getBlogs();
-
+export default function BlogSection() {
   return (
     <SectionWatcher id="blog">
       <SlideUpInView>

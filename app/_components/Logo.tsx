@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 
 import cn from "classnames";
 
-interface LogoProps extends HTMLAttributes<HTMLDivElement> {}
+type LogoProps = HTMLAttributes<HTMLDivElement>;
 
 const Logo = ({ className, ...props }: LogoProps) => {
   // TODO: onClick 동작 추가
