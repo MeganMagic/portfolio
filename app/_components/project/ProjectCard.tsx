@@ -3,9 +3,9 @@
 import cn from "classnames";
 import parse from "html-react-parser";
 import Image from "next/image";
-import Link from "next/link";
 
 import type { Skill } from "@/data/types";
+import { Link } from "@/i18n/navigation";
 
 import SkillItem from "../skill/SkillItem";
 
@@ -18,7 +18,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ id, title, sub_title, skills }: ProjectCardProps) => {
   return (
-    <Link className="no-underline" href={`/project/${id}`} passHref scroll={false}>
+    <Link className="no-underline" href={`/project/${id}`} scroll={false}>
       <div
         id={`project-card-${id}`}
         className={cn(

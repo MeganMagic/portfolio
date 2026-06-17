@@ -1,30 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "react-feather";
+import { GitHub, Menu, X } from "react-feather";
 
 import cn from "classnames";
 import { useAnimate, stagger } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import useOnClickOutside from "@/utils/useOnClickOutside";
 
+import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
-import { useSectionWatch } from "./SectionWatcher";
+import ThemeToggle from "./ThemeToggle";
+import { navItems } from "./navItems";
 
 type HeaderProps = React.HTMLAttributes<HTMLHeadElement>;
 
-const navItems = [
-  { label: "기술", id: "skill" },
-  { label: "경력", id: "experience" },
-  { label: "프로젝트", id: "project" },
-  { label: "블로그", id: "blog" },
-];
+const GITHUB_URL = "https://github.com/MeganMagic";
 
-const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
+const staggerMenuItems = stagger(0.07, { startDelay: 0.1 });
 
 const Header = ({ className, ...props }: HeaderProps) => {
-  const { activeId } = useSectionWatch();
+  const t = useTranslations("Header");
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [scope, animate] = useAnimate();
@@ -37,8 +35,8 @@ const Header = ({ className, ...props }: HeaderProps) => {
     animate([
       [
         ".mobile-menu",
-        { clipPath: isExpanded ? "inset(0% 0% 0% 0% round 16px)" : "inset(0% 10% 100% 90% round 16px)" },
-        { type: "spring", bounce: 0, duration: 0.5 },
+        { clipPath: isExpanded ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)" },
+        { type: "spring", bounce: 0, duration: 0.4 },
       ],
       [
         ".mobile-menu-item",
@@ -51,62 +49,89 @@ const Header = ({ className, ...props }: HeaderProps) => {
   useOnClickOutside(scope, () => setIsExpanded(false));
 
   return (
-    <header className="w-full sm:w-auto sticky top-4 z-50 px-3 sm:px-0" {...props} ref={scope}>
-      <div
-        className={cn(
-          className,
-          "w-full h-10 md:h-12 px-4 md:px-6 sm:pr-1.5 md:pr-2 bg-foreground/[0.07] backdrop-blur-lg rounded-full",
-          "flex justify-between items-center  gap-1.5 md:gap-2",
-          "dark:bg-light/10 ",
-        )}
-      >
-        <Link className="no-underline" href="#top">
-          <Logo className="mr-4" />
-        </Link>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full h-16 px-6",
+        "bg-background border-b border-foreground/10",
+        "flex items-center justify-between gap-4",
+        className,
+      )}
+      {...props}
+      ref={scope}
+    >
+      <Link className="no-underline flex items-center gap-2.5 shrink-0" href="#top">
+        <Logo />
+        <p className="text-sm md:text-base whitespace-nowrap leading-none">
+          <span className="font-extrabold text-foreground">{t("name")}</span>
+          <span className="font-normal text-foreground/45"> | {t("role")}</span>
+        </p>
+      </Link>
 
-        <ul className="hidden sm:flex gap-1.5 md:gap-2 items-center list-none p-0 indent-0">
-          {navItems.map(({ label, id }) => (
-            <Link key={`header-item-${id}`} href={`#${id}`} className="no-underline">
-              <li
-                className={cn(
-                  "px-3 md:px-4 py-1.5 md:py-2 rounded-full flex gap-0.5 items-center transition-colors",
-                  activeId === id && "bg-background",
-                )}
-              >
-                <span
-                  className={cn(
-                    "text-xs md:text-sm font-semibold whitespace-nowrap",
-                    activeId === id ? "text-foreground" : "text-foreground/60",
-                  )}
-                >
-                  {label}
-                </span>
-              </li>
-            </Link>
-          ))}
-        </ul>
+      <div className="flex items-center gap-2 shrink-0">
+        <div className="hidden xl:flex items-center gap-3">
+          <LanguageSwitcher />
+          <ThemeToggle />
+          <Link
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="text-foreground/55 hover:text-foreground transition-colors"
+          >
+            <GitHub className="w-[18px] h-[18px]" strokeWidth={1.5} />
+          </Link>
+        </div>
 
-        <button className="block sm:hidden" onClick={toggleMobileMenu}>
+        <button
+          type="button"
+          className="block xl:hidden text-foreground/70 -mr-1 p-1"
+          onClick={toggleMobileMenu}
+          aria-label={t(isExpanded ? "closeMenu" : "openMenu")}
+          aria-expanded={isExpanded}
+        >
           {isExpanded ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      <ul
+      <div
         className={cn(
           "mobile-menu",
-          "absolute top-12 left-1 right-1",
-          "h-fit px-5 py-4 mt-2 flex flex-col sm:hidden indent-0",
-          "bg-foreground/[0.07] backdrop-blur-lg list-none",
+          "absolute top-full left-0 right-0",
+          "flex flex-col xl:hidden px-6 py-3 indent-0",
+          "bg-background border-b border-foreground/10 shadow-sm",
           isExpanded ? "pointer-events-auto" : "pointer-events-none",
         )}
-        style={{ clipPath: "inset(0% 50% 100% 50% round 10px)" }}
+        style={{ clipPath: "inset(0% 0% 100% 0%)" }}
       >
-        {navItems.map(({ label, id }) => (
-          <Link key={`header-item-m-${id}`} href={`#${id}`} className={cn("mobile-menu-item", "no-underline")}>
-            <li className="py-2.5 text-base font-semibold whitespace-nowrap text-foreground/80">{label}</li>
-          </Link>
-        ))}
-      </ul>
+        <ul className="flex flex-col list-none p-0 m-0 indent-0">
+          {navItems.map(({ key, id }) => (
+            <Link
+              key={`header-item-m-${id}`}
+              href={`#${id}`}
+              className={cn("mobile-menu-item", "no-underline")}
+              onClick={() => setIsExpanded(false)}
+            >
+              <li className="py-2.5 text-base font-semibold whitespace-nowrap text-foreground/80">{t(`nav.${key}`)}</li>
+            </Link>
+          ))}
+        </ul>
+
+        <div className="mobile-menu-item flex items-center justify-between gap-3 pt-3 mt-2 border-t border-foreground/10">
+          <LanguageSwitcher variant="inline" />
+          <div className="flex items-center gap-5">
+            <ThemeToggle />
+            <Link
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-foreground/55 hover:text-foreground transition-colors"
+            >
+              <GitHub className="w-[18px] h-[18px]" strokeWidth={1.5} />
+            </Link>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

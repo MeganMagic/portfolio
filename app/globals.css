@@ -11,15 +11,18 @@
   --color-point: 226, 255, 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 15, 24, 42;
-    /* green, lime, blue */
-    --color-primary: 0, 209, 125;
-    --color-secondary: 203, 229, 0;
-    --color-point: 0, 122, 255;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 15, 24, 42;
+  /* green, lime, blue */
+  --color-primary: 0, 209, 125;
+  --color-secondary: 203, 229, 0;
+  --color-point: 0, 122, 255;
+}
+
+html {
+  /* Offset anchor jumps so sections aren't hidden behind the sticky 64px header. */
+  scroll-padding-top: 4rem;
 }
 
 body {

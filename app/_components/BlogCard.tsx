@@ -2,6 +2,7 @@ import { ChevronsRight } from "react-feather";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface BlogCardProps {
   title: string;
@@ -11,6 +12,8 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ title, date, forwardLink, bgImageUrl }: BlogCardProps) => {
+  const t = useTranslations("Blog");
+
   return (
     <Link className="no-underline" href={forwardLink} target="_blank">
       <div className="w-full h-fit md:h-64 xl:h-72 p-5 md:p-6 rounded-md md:rounded-lg border-black/25 relative overflow-hidden group">
@@ -23,7 +26,7 @@ const BlogCard = ({ title, date, forwardLink, bgImageUrl }: BlogCardProps) => {
           <div className="text-white/60 text-xs md:text-sm font-normal flex justify-between md:flex-col md:flex-grow">
             <p>{date}</p>
             <div className="flex gap-1 items-center">
-              <p>자세히 보기</p>
+              <p>{t("readMore")}</p>
               <ChevronsRight size={14} strokeWidth={1.5} />
             </div>
           </div>
