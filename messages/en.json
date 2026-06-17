@@ -11,8 +11,10 @@
       "skill": "Skills",
       "experience": "Experience",
       "project": "Projects",
-      "blog": "Blog"
+      "blog": "Blog",
+      "education": "Education"
     },
+    "sectionNav": "Section navigation",
     "toggleTheme": "Toggle theme",
     "changeLanguage": "Change language",
     "openMenu": "Open menu",

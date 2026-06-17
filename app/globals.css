@@ -20,6 +20,11 @@
   --color-point: 0, 122, 255;
 }
 
+html {
+  /* Offset anchor jumps so sections aren't hidden behind the sticky 64px header. */
+  scroll-padding-top: 4rem;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));

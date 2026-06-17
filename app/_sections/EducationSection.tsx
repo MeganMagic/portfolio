@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import EducationCard from "@/_components/EducationCard";
+import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import educations from "@/data/educations";
 import type { Locale } from "@/i18n/routing";
@@ -13,7 +14,7 @@ export default function EducationSection() {
   const certifications = educations[locale].filter(d => d.category === "CERTIFICATION");
 
   return (
-    <section id="education">
+    <SectionWatcher id="education">
       <SlideUpInView>
         <h2 className="section-eyebrow mb-6 md:mb-8">{t("eyebrow")}</h2>
 
@@ -27,6 +28,6 @@ export default function EducationSection() {
           ))}
         </div>
       </SlideUpInView>
-    </section>
+    </SectionWatcher>
   );
 }

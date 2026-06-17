@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 
 import Header from "@/_components/Header";
+import SectionNav from "@/_components/SectionNav";
 import { SectionWatchProvider } from "@/_components/SectionWatcher";
 import BlogSection from "@/_sections/BlogSection";
 import EducationSection from "@/_sections/EducationSection";
@@ -18,6 +19,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <SectionWatchProvider>
+      <Header />
+      <SectionNav />
       <main
         className="
         w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
@@ -26,7 +29,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       "
       >
         <MainSection />
-        <Header className="mb-10" />
         <IntroSection />
         <SkillSection />
         <ExperienceSection />
