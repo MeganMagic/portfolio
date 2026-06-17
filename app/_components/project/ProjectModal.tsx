@@ -3,9 +3,11 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 import projects from "@/data/projects";
 import skills from "@/data/skills";
+import type { Locale } from "@/i18n/routing";
 
 import SkillItem from "../skill/SkillItem";
 
@@ -13,8 +15,8 @@ interface ProjectModalProps {
   id: number;
 }
 
-function getProjectById(id: number) {
-  const project = projects.find(p => p.id === id);
+function getProjectById(id: number, locale: Locale) {
+  const project = projects[locale].find(p => p.id === id);
   if (!project) {
     notFound();
   }
@@ -34,7 +36,9 @@ function getProjectById(id: number) {
 }
 
 export default function ProjectModal({ id }: ProjectModalProps) {
-  const { title, sub_title, member, period, skills: projectSkills, links, items } = getProjectById(id);
+  const t = useTranslations("Project");
+  const locale = useLocale() as Locale;
+  const { title, sub_title, member, period, skills: projectSkills, links, items } = getProjectById(id, locale);
 
   const skillsElement = (
     <ul className="p-0 flex gap-2 list-none flex-wrap">
@@ -67,15 +71,15 @@ export default function ProjectModal({ id }: ProjectModalProps) {
 
         <div className="flex gap-6 flex-wrap">
           {[
-            { title: "프로젝트 설명", content: parse(sub_title), isFull: true },
+            { title: t("modal.description"), content: parse(sub_title), isFull: true },
             {
-              title: "기술 스택",
+              title: t("modal.techStack"),
               content: skillsElement,
               isFull: true,
             },
-            { title: "참여인원", content: member },
-            { title: "기간", content: period },
-            ...(links.length ? [{ title: "관련 링크", content: linksElement }] : []),
+            { title: t("modal.members"), content: member },
+            { title: t("modal.period"), content: period },
+            ...(links.length ? [{ title: t("modal.links"), content: linksElement }] : []),
           ].map(({ title, content, isFull }) => (
             <div key={`project-info-${title}`} className={cn("flex flex-col gap-1", isFull && "w-full")}>
               <p className="text-sm font-medium text-foreground/50">{title}</p>
@@ -88,7 +92,7 @@ export default function ProjectModal({ id }: ProjectModalProps) {
       <div className="w-full h-[1px] min-h-[1px] bg-foreground/10 my-10 md:my-12" />
 
       <div id="project-modal-content" className="text-sm md:text-base flex flex-col gap-2">
-        <p className="font-semibold text-base md:text-lg">상세 내용</p>
+        <p className="font-semibold text-base md:text-lg">{t("modal.details")}</p>
         <ol className="list-decimal break-keep">
           {items.map((item, index) => (
             <li key={`project-item-${index}`} className="mb-6 md:mb-8 last:mb-0">

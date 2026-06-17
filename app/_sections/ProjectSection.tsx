@@ -1,8 +1,11 @@
+import { useLocale, useTranslations } from "next-intl";
+
 import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import ProjectCards from "@/_components/project/ProjectCards";
 import projects from "@/data/projects";
 import skills from "@/data/skills";
+import type { Locale } from "@/i18n/routing";
 
 function getSkillsByIds(ids: number[]) {
   return ids
@@ -12,7 +15,10 @@ function getSkillsByIds(ids: number[]) {
 }
 
 export default function ProjectSection() {
-  const projectSummaries = projects.map(({ id, title, sub_title, skill_ids }) => ({
+  const t = useTranslations("Project");
+  const locale = useLocale() as Locale;
+
+  const projectSummaries = projects[locale].map(({ id, title, sub_title, skill_ids }) => ({
     id,
     title,
     sub_title,
@@ -22,8 +28,8 @@ export default function ProjectSection() {
   return (
     <SectionWatcher id="project">
       <SlideUpInView>
-        <h2 className="section-eyebrow">프로젝트 상세</h2>
-        <p className="section-title">주요 프로젝트의 세부 사항을 확인해보세요</p>
+        <h2 className="section-eyebrow">{t("eyebrow")}</h2>
+        <p className="section-title">{t("title")}</p>
 
         <ProjectCards projects={projectSummaries} />
       </SlideUpInView>

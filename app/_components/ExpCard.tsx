@@ -5,6 +5,7 @@ import { ChevronRight } from "react-feather";
 
 import cn from "classnames";
 import parse from "html-react-parser";
+import { useTranslations } from "next-intl";
 
 import Shape from "@/assets/shape-sparkle.svg";
 import type { Experience, Skill } from "@/data/types";
@@ -16,6 +17,7 @@ interface ExpCardProps extends Omit<Experience, "skill_ids"> {
 }
 
 const ExpCard = ({ id, period, is_active, title, sub_title, skills, items }: ExpCardProps) => {
+  const t = useTranslations("Experience");
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleDetail = () => {
@@ -47,7 +49,7 @@ const ExpCard = ({ id, period, is_active, title, sub_title, skills, items }: Exp
 
         <button className="text-primary/75 flex items-center gap-1 mt-2" onClick={toggleDetail}>
           <ChevronRight className={cn("w-4 h-4 transition-transform", isExpanded && "rotate-90")} />
-          <p className="text-left text-xs md:text-sm">주요 업무 내용 {isExpanded ? "가리기" : "보기"}</p>
+          <p className="text-left text-xs md:text-sm">{isExpanded ? t("hideDetail") : t("showDetail")}</p>
         </button>
         {isExpanded && (
           <ul className="list-disc list-inside bg-foreground/5 rounded-lg p-4 -indent-5 pl-10">
