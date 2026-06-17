@@ -1,10 +1,13 @@
 import React from "react";
 
+import { useLocale, useTranslations } from "next-intl";
+
 import ExpCard from "@/_components/ExpCard";
 import SectionWatcher from "@/_components/SectionWatcher";
 import SlideUpInView from "@/_components/SlideUpInView";
 import experiences from "@/data/experiences";
 import skills from "@/data/skills";
+import type { Locale } from "@/i18n/routing";
 
 function getSkillsByIds(ids: number[]) {
   return ids
@@ -14,7 +17,10 @@ function getSkillsByIds(ids: number[]) {
 }
 
 export default function ExperienceSection() {
-  const data = experiences.map(({ skill_ids, ...exp }) => ({
+  const t = useTranslations("Experience");
+  const locale = useLocale() as Locale;
+
+  const data = experiences[locale].map(({ skill_ids, ...exp }) => ({
     ...exp,
     skills: getSkillsByIds(skill_ids),
   }));
@@ -25,18 +31,14 @@ export default function ExperienceSection() {
   return (
     <SectionWatcher id="experience">
       <SlideUpInView>
-        <h2 className="section-eyebrow">경력 사항</h2>
-        <p className="section-title">
-          다양한 업무와 프로젝트를 통해
-          <br />
-          경험과 노하우를 쌓고 있습니다.
-        </p>
+        <h2 className="section-eyebrow">{t("eyebrow")}</h2>
+        <p className="section-title">{t.rich("title", { br: () => <br /> })}</p>
 
         {[
-          { title: "업무 경험", data: works },
-          { title: "프로젝트", data: projects },
-        ].map(({ title, data }) => (
-          <React.Fragment key={`exp-${title}`}>
+          { key: "work", title: t("groups.work"), data: works },
+          { key: "project", title: t("groups.project"), data: projects },
+        ].map(({ key, title, data }) => (
+          <React.Fragment key={`exp-${key}`}>
             <div className="flex gap-4 items-center md:max-w-[768px] mx-auto mt-12 mb-8">
               <div className="w-full h-[1px] bg-gradient-to-l from-foreground/15" />
               <p className="flex-shrink-0 text-xs md:text-sm text-foreground/50">{title}</p>

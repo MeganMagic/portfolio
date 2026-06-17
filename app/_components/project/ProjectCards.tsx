@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { useTranslations } from "next-intl";
+
 import type { Project, Skill } from "@/data/types";
 
 import ProjectCard from "./ProjectCard";
@@ -18,6 +20,7 @@ interface ProjectCardsProps {
 const ITEMS_TO_SHOW = 6;
 
 const ProjectCards = ({ projects }: ProjectCardsProps) => {
+  const t = useTranslations("Project");
   const [showIndex, setShowIndex] = useState(ITEMS_TO_SHOW);
   const hasNext = showIndex < projects.length;
 
@@ -31,7 +34,9 @@ const ProjectCards = ({ projects }: ProjectCardsProps) => {
       {projects.slice(0, showIndex).map(props => (
         <ProjectCard key={`project-card-${props.id}`} {...props} />
       ))}
-      {hasNext && <CTAButton className="md:col-span-2 xl:col-span-3 mx-auto" label="더 보기" onClick={showMore} />}
+      {hasNext && (
+        <CTAButton className="md:col-span-2 xl:col-span-3 mx-auto" label={t("showMore")} onClick={showMore} />
+      )}
     </div>
   );
 };

@@ -1,4 +1,8 @@
+import { setRequestLocale } from "next-intl/server";
+
 import Header from "@/_components/Header";
+import SectionNav from "@/_components/SectionNav";
+import { SectionWatchProvider } from "@/_components/SectionWatcher";
 import BlogSection from "@/_sections/BlogSection";
 import EducationSection from "@/_sections/EducationSection";
 import ExperienceSection from "@/_sections/ExperienceSection";
@@ -7,12 +11,16 @@ import MainSection from "@/_sections/MainSection";
 import OutroSection from "@/_sections/OutroSection";
 import ProjectSection from "@/_sections/ProjectSection";
 import SkillSection from "@/_sections/SkillSection";
+import type { Locale } from "@/i18n/routing";
 
-import { SectionWatchProvider } from "./_components/SectionWatcher";
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale as Locale);
 
-export default function Home() {
   return (
     <SectionWatchProvider>
+      <Header />
+      <SectionNav />
       <main
         className="
         w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
@@ -21,7 +29,6 @@ export default function Home() {
       "
       >
         <MainSection />
-        <Header className="mb-10" />
         <IntroSection />
         <SkillSection />
         <ExperienceSection />
