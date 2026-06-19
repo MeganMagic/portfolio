@@ -7,7 +7,6 @@
  */
 
 export type Category = "FRONTEND" | "FRONTEND_LIBRARY" | "ENV" | "DESIGN" | "ETC";
-export type Ratio = "PORTRAIT" | "LANDSCAPE" | "SQUARE";
 
 export interface Skill {
   id: number;
@@ -50,27 +49,16 @@ export interface Experience {
   category: string | null;
 }
 
-export interface ProjectItem {
-  id: number;
-  title: string;
-  content: string[];
-  projectId: number | null;
-  blobUrl: string | null;
-  row_number: number | null;
-  image_ratio: Ratio | null;
-}
-
-export interface Project {
-  id: number;
-  title: string;
-  sub_title: string;
+// A curated project case, shown as an inline accordion (problem → approach → result).
+export interface ProjectCase {
+  id: string;
+  company: string;
   period: string;
-  member: string;
-  skills: string[];
-  links: ExperienceLink[];
-  skill_ids: number[];
-  row_number: number | null;
-  items: ProjectItem[];
+  title: string;
+  summary: string;
+  points: string[];
+  stack: string[];
+  links?: ExperienceLink[];
 }
 
 export interface Education {
