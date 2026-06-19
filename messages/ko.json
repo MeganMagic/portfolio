@@ -8,7 +8,6 @@
     "name": "송진경",
     "role": "프론트엔드 개발자",
     "nav": {
-      "skill": "기술",
       "experience": "경력",
       "project": "프로젝트",
       "blog": "블로그",
@@ -28,16 +27,6 @@
     "eyebrow": "핵심 역량",
     "title": "확장 가능하게 설계하며, 측정해 개선합니다."
   },
-  "Skill": {
-    "eyebrow": "기술 스택 및 도구",
-    "title": "아래의 기술을 사용할 수 있습니다.",
-    "categories": {
-      "FRONTEND": "프론트엔드",
-      "FRONTEND_LIBRARY": "라이브러리",
-      "ENV": "환경 및 배포",
-      "DESIGN": "디자인"
-    }
-  },
   "Experience": {
     "eyebrow": "경력 사항",
     "title": "다양한 업무와 프로젝트를 통해<br></br>경험과 노하우를 쌓고 있습니다.",
@@ -50,17 +39,7 @@
   },
   "Project": {
     "eyebrow": "프로젝트 상세",
-    "title": "주요 프로젝트의 세부 사항을 확인해보세요",
-    "showMore": "더 보기",
-    "backToHome": "메인으로 돌아가기",
-    "modal": {
-      "description": "프로젝트 설명",
-      "techStack": "기술 스택",
-      "members": "참여인원",
-      "period": "기간",
-      "links": "관련 링크",
-      "details": "상세 내용"
-    }
+    "title": "주요 프로젝트의 세부 사항을 확인해보세요"
   },
   "Blog": {
     "eyebrow": "블로그",

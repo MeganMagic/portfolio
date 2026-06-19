@@ -8,7 +8,6 @@
     "name": "Jin-kyeong Song",
     "role": "Frontend Developer",
     "nav": {
-      "skill": "Skills",
       "experience": "Experience",
       "project": "Projects",
       "blog": "Blog",
@@ -28,16 +27,6 @@
     "eyebrow": "Core Strengths",
     "title": "I design for scalability and improve through measurement."
   },
-  "Skill": {
-    "eyebrow": "Tech Stack & Tools",
-    "title": "I work with the technologies below.",
-    "categories": {
-      "FRONTEND": "Frontend",
-      "FRONTEND_LIBRARY": "Libraries",
-      "ENV": "Environment & Deploy",
-      "DESIGN": "Design"
-    }
-  },
   "Experience": {
     "eyebrow": "Experience",
     "title": "Through diverse work and projects,<br></br>I keep building experience and know-how.",
@@ -50,17 +39,7 @@
   },
   "Project": {
     "eyebrow": "Project Details",
-    "title": "Take a closer look at the details of my key projects.",
-    "showMore": "Show more",
-    "backToHome": "Back to home",
-    "modal": {
-      "description": "Description",
-      "techStack": "Tech Stack",
-      "members": "Team",
-      "period": "Period",
-      "links": "Links",
-      "details": "Details"
-    }
+    "title": "Take a closer look at the details of my key projects."
   },
   "Blog": {
     "eyebrow": "Blog",

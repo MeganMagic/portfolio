@@ -19,7 +19,6 @@ const inter = Gothic_A1({
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
-  modal: React.ReactNode;
   params: Promise<{ locale: string }>;
 }
 
@@ -46,7 +45,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
   };
 }
 
-export default async function LocaleLayout({ children, modal, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -61,11 +60,7 @@ export default async function LocaleLayout({ children, modal, params }: LocaleLa
     <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeScript />
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          {modal}
-          <div id="modal-root" />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
       </body>

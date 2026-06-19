@@ -10,7 +10,6 @@ import IntroSection from "@/_sections/IntroSection";
 import MainSection from "@/_sections/MainSection";
 import OutroSection from "@/_sections/OutroSection";
 import ProjectSection from "@/_sections/ProjectSection";
-import SkillSection from "@/_sections/SkillSection";
 import type { Locale } from "@/i18n/routing";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -30,7 +29,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       >
         <MainSection />
         <IntroSection />
-        <SkillSection />
         <ExperienceSection />
         <ProjectSection />
         <BlogSection />
