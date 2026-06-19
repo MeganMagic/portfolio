@@ -9,46 +9,46 @@ const intros: Record<Locale, Intro[]> = {
   ko: [
     {
       id: 1,
-      title: "모던 프론트엔드 개발",
+      title: "확장 가능한 프론트엔드 구조 설계",
       detail:
-        "React.js를 이용한 프론트엔드 개발경험이 있으며, Javascript(ES6), typescript에 능숙합니다. Next.js와 더불어 핵심적인 React library 활용 경험이 있습니다.",
+        "마이크로 프론트엔드 구조를 설계하고 PoC를 구축했으며, 실제 서비스에 점진적으로 적용하며 고도화하고 있습니다.<br/>팀 내 라이브러리를 만들 때 DX를 고려해, 변경이 잦은 환경에서도 일관성과 유지보수성을 지키도록 했습니다.",
       blobUrl: "/assets/intros/feature1.png",
     },
     {
       id: 2,
-      title: "웹사이트 개선 및 최적화",
+      title: "성능 개선과 레거시 리팩토링",
       detail:
-        "웹사이트를 개발하고 유지보수하면서, 웹사이트의 성능을 측정하고 개선했습니다.<br/>또, 검색엔진 최적화 작업을 통해 유입 트래픽을 6개월간 25.6% 증가시킨 경험이 있습니다.",
+        "레거시 환경의 사이드 내비게이션을 Module Federation으로 재구성해 초기 로딩 시간을 약 15~19% 줄이고, 중복 서버 요청을 최대 71% 줄였습니다.<br/>상태 관리를 zustand로 일원화하고 거대 store를 도메인 단위로 분리하는 등 레거시 코드를 정리해 유지보수성을 높였습니다.",
       blobUrl: "/assets/intros/feature2.png",
     },
     {
       id: 3,
-      title: "커뮤니케이션 및 협업",
+      title: "직군 간 협업과 조율",
       detail:
-        "Github 이용한 협업 경험이 있으며, Jira, Slack, Notion 등의 협업 도구 사용 경험도 있습니다.<br/>기획, 디자인, 총무 등 다양한 직무 경험을 기반으로 다른 직군과 원활한 커뮤니케이션이 가능합니다.",
+        "목적 조직에서 스프린트를 진행하며 디자이너·백엔드와 협업했고, 기술적 제약과 비용을 근거로 설명하며 작업 범위와 책임 경계를 조율해 왔습니다.<br/>프론트엔드 AI Agent 스킬을 설계해, 개발자가 아닌 직군도 AI를 통해 MR 작성까지 할 수 있는 워크플로우를 만들고 있습니다.",
       blobUrl: "/assets/intros/feature3.png",
     },
   ],
   en: [
     {
       id: 1,
-      title: "Modern Frontend Development",
+      title: "Scalable Frontend Architecture",
       detail:
-        "Experienced in frontend development with React.js, proficient in JavaScript (ES6) and TypeScript. Hands-on experience with Next.js and core React libraries.",
+        "Designed and built a PoC for a micro-frontend architecture, and have been rolling it out incrementally in production.<br/>When building internal libraries, I focus on developer experience so consistency and maintainability hold up even in a fast-changing codebase.",
       blobUrl: "/assets/intros/feature1.png",
     },
     {
       id: 2,
-      title: "Website Improvement & Optimization",
+      title: "Performance & Legacy Refactoring",
       detail:
-        "Measured and improved website performance through active development and maintenance.<br/>Applied SEO techniques to grow organic traffic by 25.6% over six months.",
+        "Rebuilt a legacy side navigation with Module Federation, cutting initial load time by about 15–19% and redundant server requests by up to 71%.<br/>Consolidated state management on Zustand and split a monolithic store by domain, cleaning up legacy code to improve maintainability.",
       blobUrl: "/assets/intros/feature2.png",
     },
     {
       id: 3,
-      title: "Communication & Collaboration",
+      title: "Cross-functional Collaboration",
       detail:
-        "Experienced in collaborative workflows using GitHub, and proficient with tools such as Jira, Slack, and Notion.<br/>Able to communicate effectively across disciplines, drawing on diverse experience in planning, design, and operations.",
+        "Working within a product team, I collaborate with designers and backend engineers across sprints, aligning scope and responsibility boundaries by explaining technical constraints and trade-offs.<br/>I'm designing frontend AI agent skills so non-developer roles can open merge requests through AI and work more efficiently.",
       blobUrl: "/assets/intros/feature3.png",
     },
   ],
