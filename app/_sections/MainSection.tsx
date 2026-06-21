@@ -6,7 +6,7 @@ const MainSection = () => {
   return (
     <div
       id="main"
-      className="relative w-full flex flex-col items-center justify-center py-16 md:py-24"
+      className="relative w-full flex flex-col items-center justify-center pt-16 md:pt-24 pb-32"
       style={{ minHeight: "clamp(600px, 80vh, 1080px)" }}
     >
       {/* Full-bleed ambient color blobs (CSS drift — see globals.css) */}
@@ -25,12 +25,12 @@ const MainSection = () => {
         />
       </div>
 
-      <h1 className="hero-rise relative z-10 w-full p-6 md:p-8">
+      <h1 className="hero-rise relative z-10 w-full p-6 md:p-8 leading-[1.15]">
         {t.rich("heading", { em: chunks => <em>{chunks}</em>, br: () => <br /> })}
       </h1>
 
       <p
-        className="hero-rise relative z-10 text-center text-base md:text-lg font-normal text-foreground/70 break-keep"
+        className="hero-rise relative z-10 text-center text-base font-normal text-foreground/70 break-keep"
         style={{ animationDelay: "0.12s" }}
       >
         {t.rich("subtitle", { br: () => <br /> })}
