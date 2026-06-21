@@ -10,7 +10,7 @@ const MainSection = () => {
       style={{ minHeight: "clamp(600px, 80vh, 1080px)" }}
     >
       {/* Full-bleed ambient color blobs (CSS drift — see globals.css) */}
-      <div aria-hidden className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen overflow-hidden z-0">
+      <div aria-hidden className="absolute -top-16 bottom-0 left-1/2 -translate-x-1/2 w-screen overflow-hidden z-0">
         <div
           className="hero-blob w-[460px] h-[460px] md:w-[620px] md:h-[620px] top-[-12%] left-[6%] bg-blue/20 dark:bg-blue/30"
           style={{ animation: "hero-drift-a 22s ease-in-out infinite alternate" }}
