@@ -30,7 +30,7 @@ const MainSection = () => {
       </h1>
 
       <p
-        className="hero-rise relative z-10 text-center text-base md:text-lg font-normal text-primary/70 break-keep"
+        className="hero-rise relative z-10 text-center text-base md:text-lg font-normal text-foreground/70 break-keep"
         style={{ animationDelay: "0.12s" }}
       >
         {t.rich("subtitle", { br: () => <br /> })}
