@@ -11,7 +11,6 @@ import { useTranslations } from "next-intl";
 import useOnClickOutside from "@/utils/useOnClickOutside";
 
 import LanguageSwitcher from "./LanguageSwitcher";
-import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import { navItems } from "./navItems";
 
@@ -25,11 +24,21 @@ const Header = ({ className, ...props }: HeaderProps) => {
   const t = useTranslations("Header");
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [scope, animate] = useAnimate();
 
   const toggleMobileMenu = () => {
     setIsExpanded(!isExpanded);
   };
+
+  // Transparent over the hero; fade in background + border once #main scrolls out.
+  useEffect(() => {
+    const hero = document.getElementById("main");
+    if (!hero) return;
+    const observer = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting), { threshold: 0 });
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     animate([
@@ -52,15 +61,15 @@ const Header = ({ className, ...props }: HeaderProps) => {
     <header
       className={cn(
         "sticky top-0 z-50 w-full h-16 px-6",
-        "bg-background border-b border-foreground/10",
         "flex items-center justify-between gap-4",
+        "border-b transition-colors duration-300",
+        scrolled || isExpanded ? "bg-background border-foreground/10" : "bg-transparent border-transparent",
         className,
       )}
       {...props}
       ref={scope}
     >
-      <Link className="no-underline flex items-center gap-2.5 shrink-0" href="#top">
-        <Logo />
+      <Link className="no-underline flex items-center shrink-0" href="#top">
         <p className="text-sm md:text-base whitespace-nowrap leading-none">
           <span className="font-extrabold text-foreground">{t("name")}</span>
           <span className="font-normal text-foreground/45"> | {t("role")}</span>
