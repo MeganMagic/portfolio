@@ -89,7 +89,6 @@ body {
   /* Hero: soft drifting color blobs (aurora) + text entrance. */
   .hero-blob {
     @apply absolute rounded-full pointer-events-none;
-    filter: blur(96px);
     will-change: transform;
   }
   .hero-rise {
@@ -108,30 +107,59 @@ body {
   }
 }
 
+/* Organic floating loops — gentle orbit + scale "breathing". Each ends where
+   it starts so the loop is seamless without `alternate` ping-pong. */
 @keyframes hero-drift-a {
-  from {
+  0% {
     transform: translate(0, 0) scale(1);
   }
-  to {
-    transform: translate(48px, 36px) scale(1.12);
+  25% {
+    transform: translate(34px, 28px) scale(1.06);
+  }
+  50% {
+    transform: translate(52px, -18px) scale(1.12);
+  }
+  75% {
+    transform: translate(18px, -38px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
 @keyframes hero-drift-b {
-  from {
-    transform: translate(0, 0) scale(1.06);
+  0% {
+    transform: translate(0, 0) scale(1.04);
   }
-  to {
-    transform: translate(-40px, -44px) scale(1);
+  25% {
+    transform: translate(-34px, 22px) scale(1);
+  }
+  50% {
+    transform: translate(-22px, 46px) scale(1.08);
+  }
+  75% {
+    transform: translate(26px, 26px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1.04);
   }
 }
 
 @keyframes hero-drift-c {
-  from {
+  0% {
     transform: translate(0, 0) scale(1);
   }
-  to {
-    transform: translate(28px, -34px) scale(1.1);
+  25% {
+    transform: translate(-26px, -22px) scale(1.06);
+  }
+  50% {
+    transform: translate(30px, -36px) scale(1.12);
+  }
+  75% {
+    transform: translate(22px, 16px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
