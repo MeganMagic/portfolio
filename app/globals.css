@@ -89,6 +89,7 @@ body {
   /* Hero: soft drifting color blobs (aurora) + text entrance. */
   .hero-blob {
     @apply absolute rounded-full pointer-events-none;
+    filter: blur(96px);
     will-change: transform;
   }
   .hero-rise {
