@@ -21,7 +21,10 @@
   },
   "Main": {
     "heading": "안녕하세요,<br></br>프론트엔드 개발자<br></br><em>송진경</em>입니다.",
-    "subtitle": "사용자가 마주하는 화면을 만들고, 오래 가도록 구조를 다집니다.<br></br>제품을 함께 만들고 키우는 일을 좋아합니다."
+    "subtitle": "사용자가 마주하는 화면을 만들고, 오래 가도록 구조를 다집니다.<br></br>제품을 함께 만들고 키우는 일을 좋아합니다.",
+    "resumeDownload": "이력서 다운로드",
+    "resumeDownloading": "생성 중…",
+    "resumeDownloadFailed": "다운로드에 실패했어요. 잠시 후 다시 시도해 주세요."
   },
   "Intro": {
     "eyebrow": "핵심 역량",

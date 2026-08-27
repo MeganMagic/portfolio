@@ -21,7 +21,10 @@
   },
   "Main": {
     "heading": "Hello,<br></br>I'm <em>Jin-kyeong Song</em>,<br></br>a Frontend Developer.",
-    "subtitle": "I build the screens people use, and shape structures that last.<br></br>I love building and growing products together."
+    "subtitle": "I build the screens people use, and shape structures that last.<br></br>I love building and growing products together.",
+    "resumeDownload": "Download Resume",
+    "resumeDownloading": "Generating…",
+    "resumeDownloadFailed": "Download failed. Please try again in a moment."
   },
   "Intro": {
     "eyebrow": "Core Strengths",

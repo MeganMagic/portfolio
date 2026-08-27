@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 
+import ResumeDownloadButton from "@/_components/buttons/ResumeDownloadButton";
+
 const MainSection = () => {
   const t = useTranslations("Main");
 
@@ -35,6 +37,10 @@ const MainSection = () => {
       >
         {t.rich("subtitle", { br: () => <br /> })}
       </p>
+
+      <div className="hero-rise relative z-10 mt-8 md:mt-10" style={{ animationDelay: "2s" }}>
+        <ResumeDownloadButton />
+      </div>
     </div>
   );
 };
