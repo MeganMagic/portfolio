@@ -1,4 +1,5 @@
 User-Agent: *
 Allow: /
+Disallow: /api/resume
 
 Sitemap: https://www.meganmagic.com/sitemap.xml
