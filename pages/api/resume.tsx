@@ -1,9 +1,5 @@
-import { renderToBuffer } from "@react-pdf/renderer";
-
-import ResumeDocument from "@/_resume/ResumeDocument";
-import { registerFonts } from "@/_resume/fonts";
+import { renderResume } from "@/_resume/renderResume";
 import { filenameFor, pdfHeaders, resolveLocale, stampFor } from "@/_resume/responseSpec";
-import { buildResumeData } from "@/_resume/resumeData";
 
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -29,10 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const locale = resolveLocale((req.body as { locale?: unknown } | undefined)?.locale);
     const stamp = stampFor(new Date());
 
-    registerFonts();
-
-    const data = buildResumeData(locale);
-    const buffer = await renderToBuffer(<ResumeDocument data={data} generatedAt={stamp} />);
+    const buffer = await renderResume(locale, stamp);
 
     for (const [header, value] of Object.entries(pdfHeaders(filenameFor(locale, stamp), buffer.length))) {
       res.setHeader(header, value);
