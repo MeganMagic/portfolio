@@ -9,6 +9,8 @@
   --color-primary: 0, 122, 255;
   --color-secondary: 0, 198, 118;
   --color-point: 226, 255, 0;
+  /* Scrim behind the hero heading; dark needs more, its wave crests are brighter. */
+  --hero-scrim: 0.15;
 }
 
 .dark {
@@ -18,6 +20,7 @@
   --color-primary: 0, 209, 125;
   --color-secondary: 203, 229, 0;
   --color-point: 0, 122, 255;
+  --hero-scrim: 0.45;
 }
 
 html {
@@ -86,11 +89,35 @@ body {
     display: none;
   }
 
-  /* Hero: soft drifting color blobs (aurora) + text entrance. */
-  .hero-blob {
-    @apply absolute rounded-full pointer-events-none;
-    filter: blur(96px);
-    will-change: transform;
+  /* Hero: full-bleed wave field (see HeroWaves.tsx) + text entrance. */
+
+  /* Understudy for the WebGL field: paints before hydration and stays put when
+     WebGL2 is unavailable. Hues track the shader's horizon/wave/crest colors. */
+  .hero-fallback {
+    @apply absolute inset-0 pointer-events-none;
+    background:
+      radial-gradient(120% 78% at 50% 108%, rgba(43, 255, 186, 0.26) 0%, rgba(0, 135, 255, 0.1) 46%, transparent 76%),
+      linear-gradient(180deg, rgba(0, 135, 255, 0.05) 0%, transparent 46%);
+  }
+  .dark .hero-fallback {
+    background:
+      radial-gradient(110% 74% at 50% 104%, rgba(43, 255, 186, 0.22) 0%, rgba(0, 135, 255, 0.12) 48%, transparent 78%),
+      linear-gradient(180deg, rgba(0, 135, 255, 0.08) 0%, transparent 52%);
+  }
+  /* Lifts heading contrast off the crests without flattening the whole field. */
+  .hero-scrim {
+    @apply absolute inset-0 pointer-events-none;
+    background: radial-gradient(
+      62% 44% at 50% 46%,
+      rgba(var(--background-rgb), var(--hero-scrim)) 0%,
+      rgba(var(--background-rgb), calc(var(--hero-scrim) * 0.65)) 55%,
+      rgba(var(--background-rgb), 0) 100%
+    );
+  }
+  /* Dissolves the wave field into the next section instead of cutting it off. */
+  .hero-foot {
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(to bottom, rgba(var(--background-rgb), 0) 55%, rgba(var(--background-rgb), 0.9) 100%);
   }
   .hero-rise {
     animation: hero-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -108,37 +135,7 @@ body {
   }
 }
 
-@keyframes hero-drift-a {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(48px, 36px) scale(1.12);
-  }
-}
-
-@keyframes hero-drift-b {
-  from {
-    transform: translate(0, 0) scale(1.06);
-  }
-  to {
-    transform: translate(-40px, -44px) scale(1);
-  }
-}
-
-@keyframes hero-drift-c {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(28px, -34px) scale(1.1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-blob {
-    animation: none !important;
-  }
   .hero-rise {
     animation: none !important;
     opacity: 1 !important;
