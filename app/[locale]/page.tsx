@@ -1,6 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
 
-import Header from "@/_components/Header";
 import SectionNav from "@/_components/SectionNav";
 import { SectionWatchProvider } from "@/_components/SectionWatcher";
 import BlogSection from "@/_sections/BlogSection";
