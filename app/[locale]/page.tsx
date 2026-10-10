@@ -24,7 +24,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <MainSection />
       <main
         className="
-          w-full min-w-96 max-w-screen-lg min-h-screen mx-auto
+          w-full min-w-80 max-w-screen-lg min-h-screen mx-auto
           px-5 md:px-8 lg:px-10
           flex flex-col items-center relative
         "

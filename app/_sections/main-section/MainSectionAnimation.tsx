@@ -28,7 +28,7 @@ const MainSectionAnimation: React.FC = () => {
     // Container
     <div
       className="
-        absolute top-0 bottom-0 left-0 right-0
+        absolute top-0 bottom-0 w-full max-w-screen-2xl left-1/2 -translate-x-1/2
         -rotate-[30deg]
       "
     >
