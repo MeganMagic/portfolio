@@ -29,7 +29,7 @@ const MainSectionAnimation: React.FC = () => {
     <div
       className="
         absolute top-0 bottom-0 left-0 right-0
-        -rotate-[15deg]
+        -rotate-[30deg]
       "
     >
       {/* Main Object — 중앙 정렬 + 진입 애니메이션 */}
@@ -50,7 +50,7 @@ const MainSectionAnimation: React.FC = () => {
       <motion.div
         className="
           absolute
-          top-1/2
+          top-[45%]
           right-[calc(50%_+_var(--main-primary-width)_/_2_+_var(--main-gap))]
         "
         initial={{ x: 0, y: "100vh" }}

@@ -20,6 +20,14 @@
   --main-gap: 2rem;
 }
 
+/* main page size (mobile, < 512px) */
+@media (max-width: 511px) {
+  :root {
+    --main-primary-width: 20rem;
+    --main-primary-height: 12.5rem;
+  }
+}
+
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 15, 24, 42;

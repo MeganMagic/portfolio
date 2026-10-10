@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import Logo from "@/assets/main-primary-logo.svg";
+
 //
 //
 //
@@ -56,6 +58,9 @@ const MainSectionPrimaryCard = () => {
           <span className="text-primary">송진경</span>입니다.
         </motion.p>
       </motion.div>
+
+      {/* Logo */}
+      <Logo className="text-primary" />
     </div>
   );
 };

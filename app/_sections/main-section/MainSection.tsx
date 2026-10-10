@@ -8,30 +8,22 @@ import MainSectionContainer from "./MainSectionContainer";
 //
 
 const MainSection = () => {
-  // const t = useTranslations("Main");
-
-  // return (
-  //   <SectionContainer>
-  //     <Title />
-  //     <CardAnimation />
-  //     <CTAButton />
-  //   </SectionContainer>
-  // )
-
   return (
     <MainSectionContainer>
-      {/* <h1 className="hero-rise relative z-10 w-full p-6 md:p-8 leading-[1.15]" style={{ animationDelay: "0.5s" }}>
-        {t.rich("heading", { em: chunks => <em>{chunks}</em>, br: () => <br /> })}
-      </h1>
-
-      <p
-        className="hero-rise relative z-10 text-center text-base font-normal text-foreground/70 break-keep"
-        style={{ animationDelay: "1.5s" }}
-      >
-        {t.rich("subtitle", { br: () => <br /> })}
-      </p> */}
-
       <MainSectionAnimation />
+
+      <div
+        className="
+          absolute w-full top-0 h-[calc((100%_-_var(--main-primary-height))_/_2_-_var(--main-gap))]
+          from-primary/70 bg-gradient-to-b to-primary/0
+        "
+      />
+      <div
+        className="
+          absolute w-full bottom-0 h-[calc((100%_-_var(--main-primary-height))_/_2_-_var(--main-gap))]
+          from-primary/70 bg-gradient-to-t to-primary/0
+        "
+      />
     </MainSectionContainer>
   );
 };
