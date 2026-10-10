@@ -18,7 +18,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <SectionWatchProvider>
-      <Header />
+      {/* <Header /> */}
       <SectionNav />
 
       <MainSection />
