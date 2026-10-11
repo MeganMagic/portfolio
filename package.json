@@ -2,6 +2,11 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.13.0",
+  "engines": {
+    "node": "24.x",
+    "pnpm": ">=11"
+  },
   "scripts": {
     "dev": "next dev --port 3215",
     "build": "next build",
