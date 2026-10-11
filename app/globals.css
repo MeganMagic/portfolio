@@ -5,19 +5,32 @@
 :root {
   --foreground-rgb: 34, 34, 34;
   --background-rgb: 255, 255, 255;
+
   /* blue, green, lime */
   --color-primary: 0, 122, 255;
   --color-secondary: 0, 198, 118;
   --color-point: 226, 255, 0;
+
+  --color-primary-light: 102, 174, 255;
+  --color-primary-dark: 15, 116, 226;
+
+  /* main page size */
+  --main-primary-width: 25rem;
+  --main-primary-height: 15rem;
+  --main-gap: 2rem;
+}
+
+/* main page size (mobile, < 512px) */
+@media (max-width: 511px) {
+  :root {
+    --main-primary-width: 20rem;
+    --main-primary-height: 12.5rem;
+  }
 }
 
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 15, 24, 42;
-  /* green, lime, blue */
-  --color-primary: 0, 209, 125;
-  --color-secondary: 203, 229, 0;
-  --color-point: 0, 122, 255;
 }
 
 html {
