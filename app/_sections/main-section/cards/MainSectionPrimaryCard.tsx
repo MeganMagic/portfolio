@@ -48,13 +48,13 @@ const MainSectionPrimaryCard = () => {
     >
       {/* Lines — stagger 오케스트레이션 전담 */}
       <motion.div variants={linesVariants} initial="hidden" animate="visible">
-        <motion.p variants={lineVariants} className="text-xl font-bold text-foreground/90">
+        <motion.p variants={lineVariants} className="text-xl font-bold text-black">
           안녕하세요
         </motion.p>
-        <motion.p variants={lineVariants} className="text-xl font-bold text-foreground/90">
+        <motion.p variants={lineVariants} className="text-xl font-bold text-black">
           프론트엔드 개발자
         </motion.p>
-        <motion.p variants={lineVariants} className="text-xl font-bold text-foreground/90">
+        <motion.p variants={lineVariants} className="text-xl font-bold text-black">
           <span className="text-primary">송진경</span>입니다.
         </motion.p>
       </motion.div>
