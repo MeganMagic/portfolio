@@ -4,18 +4,7 @@ import { motion } from "framer-motion";
 
 import Logo from "@/assets/main-primary-logo.svg";
 
-//
-//
-//
-
-// 텍스트 연출 — 아래에서 한 줄씩 순차로 올라옴
-const TEXT = {
-  from: 24, // 아래쪽 시작 거리(px)
-  duration: 1,
-  stagger: 0.1, // 줄 사이 간격
-  delay: 1.8, // 카드가 안착한 뒤 시작 (ENTRANCE.delay + duration)
-  ease: [0.16, 1, 0.3, 1],
-} as const;
+import { TEXT } from "../constants";
 
 const linesVariants = {
   hidden: {},
