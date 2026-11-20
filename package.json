@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@11.28.2",
   "engines": {
-    "node": "24.x",
+    "node": ">=24.22.1 <25",
     "pnpm": ">=11"
   },
   "scripts": {
@@ -19,7 +19,7 @@
     "classnames": "^2.5.1",
     "framer-motion": "^11.11.0",
     "html-react-parser": "^5.1.18",
-    "next": "^15.0.3",
+    "next": "^15.5.29",
     "next-intl": "^4.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -28,14 +28,14 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@types/node": "^20",
+    "@types/node": "^24.19.2",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "^15.0.3",
+    "eslint-config-next": "^15.5.29",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
