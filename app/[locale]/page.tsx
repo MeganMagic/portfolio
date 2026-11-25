@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import SectionNav from "@/_components/SectionNav";
 import { SectionWatchProvider } from "@/_components/SectionWatcher";
+import CareerChat from "@/_components/chat/CareerChat";
 import BlogSection from "@/_sections/BlogSection";
 import EducationSection from "@/_sections/EducationSection";
 import ExperienceSection from "@/_sections/ExperienceSection";
@@ -35,6 +36,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <EducationSection />
         <OutroSection />
       </main>
+      <CareerChat />
     </SectionWatchProvider>
   );
 }

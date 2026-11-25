@@ -54,5 +54,21 @@
     "message": "Thank you<br></br>If you'd like to know more,<br></br>feel free to reach out.",
     "email": "Email",
     "github": "Github"
+  },
+  "Chat": {
+    "fab": "Ask AI",
+    "title": "Career Q&A",
+    "subtitle": "AI answers based on this portfolio",
+    "greeting": "Hi! Ask about Jin-kyeong Song's experience, projects, and skills.",
+    "suggestion1": "Any micro-frontend experience?",
+    "suggestion2": "Tell me about a performance improvement",
+    "suggestion3": "How has AI been used in the work?",
+    "placeholder": "Ask about the career",
+    "send": "Send",
+    "thinking": "Writing an answer…",
+    "error": "Couldn't load an answer. Please try again shortly.",
+    "open": "Open career Q&A",
+    "close": "Close",
+    "disclaimer": "AI answers may be inaccurate. Off-topic questions won't be answered."
   }
 }
